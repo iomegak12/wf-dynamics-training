@@ -1,0 +1,2716 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FakeXrmEasy.Core</name>
+    </assembly>
+    <members>
+        <member name="T:FakeXrmEasy.CallerProperties">
+            <summary>
+            Caller Properties
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.CallerProperties.CallerId">
+            <summary>
+            CallerId
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.CallerProperties.BusinessUnitId">
+            <summary>
+            BusinessUnitId
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.CallerProperties.#ctor">
+            <summary>
+            Caller Properties
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.ConsiderUpgradingPlanException">
+            <summary>
+            Exception raised when the current number of users calculated based on the usage of your current subscription is greater than the maximum number of users in your current subscription
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.Exceptions.ConsiderUpgradingPlanException.#ctor(System.Int64,System.Int64)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="currentNumberOfUsers"></param>
+            <param name="allowedNumberOfUsers"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.InvalidLicenseKeyException">
+            <summary>
+            Exception raised when the license key is invalid or malformed
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.Exceptions.InvalidLicenseKeyException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.NoSubscriptionPlanInfoException">
+            <summary>
+            Exception thrown if the info about the current subscription plan is unknown
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.Exceptions.NoSubscriptionPlanInfoException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.NoUsageFoundException">
+            <summary>
+            Throws an exception when your current usage of FakeXrmEasy could not be retrieved
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.Exceptions.NoUsageFoundException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.RenewalRequestExpiredException">
+            <summary>
+            Exception raised when your current subscription expired and you exceeded the allowed renewal time window 
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.Exceptions.RenewalRequestExpiredException.#ctor(System.DateTime)">
+            <summary>
+            Throws an exception where the current subscription expired
+            </summary>
+            <param name="expiredOn"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.SubscriptionExpiredException">
+            <summary>
+            The current subscription expired
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.Exceptions.SubscriptionExpiredException.#ctor(System.DateTime)">
+            <summary>
+            Throws an exception where the current subscription expired
+            </summary>
+            <param name="expiredOn"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.UpgradeRequestExpiredException">
+            <summary>
+            Exception raised when the grace period for requesting an upgrade has expired
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.Exceptions.UpgradeRequestExpiredException.#ctor(System.DateTime)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="firstRequested"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo">
+            <summary>
+            Contains info about the current subscription
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo.CustomerId">
+            <summary>
+            The CustomerId
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo.SKU">
+            <summary>
+            SKU
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo.AutoRenews">
+            <summary>
+            True if the current subscription auto-renews 
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo.BillingType">
+            <summary>
+            The current billing cycle type
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo.NumberOfUsers">
+            <summary>
+            Max number of users allowed in the current subscription
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo.StartDate">
+            <summary>
+            The subscription start date
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionInfo.EndDate">
+            <summary>
+            The subscription's end date
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.SubscriptionUsage">
+            <summary>
+            Contains info about the current subscription usage
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionUsage.LastTimeChecked">
+            <summary>
+            The last time the current subscription usage was checked
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionUsage.Users">
+            <summary>
+            Information about all the users
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionUsage.UpgradeInfo">
+            <summary>
+            Contains info for a requested upgrade
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.SubscriptionUserInfo">
+            <summary>
+            Info about the last time a given user used FakeXrmEasy
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionUserInfo.LastTimeUsed">
+            <summary>
+            The last time this user used FakeXrmEasy
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Core.CommercialLicense.SubscriptionUserInfo.UserName">
+            <summary>
+            The user's username
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.SubscriptionValidator">
+            <summary>
+            Validates the current subscription usage is within the current subscription plan
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.SubscriptionValidator.IsValid">
+            <summary>
+            Validates if the current usage is within the subscription limits
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.SubscriptionValidator.IsSubscriptionPlanValid">
+            <summary>
+            Returns valid if the current subscription didn't expire yet
+            </summary>
+            <returns></returns>
+            <exception cref="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.NoSubscriptionPlanInfoException"></exception>
+            <exception cref="T:FakeXrmEasy.Core.CommercialLicense.Exceptions.SubscriptionExpiredException"></exception>
+        </member>
+        <member name="T:FakeXrmEasy.Core.CommercialLicense.IUserReader">
+            <summary>
+            Returns info about the current user
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.CommercialLicense.IUserReader.GetCurrentUserName">
+            <summary>
+            Gets the current username
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Db.Exceptions.TableAlreadyExistsException">
+            <summary>
+            Exception thrown when a table with the same logical name already exists in the current InMemoryDb
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.Exceptions.TableAlreadyExistsException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="logicalName"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Db.InMemoryDb">
+            <summary>
+            Represents an In-Memory database containing the necessary data and metadata
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Core.Db.InMemoryDb._tables">
+            <summary>
+            A collection of tables indexed by its logical name
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryDb.#ctor">
+            <summary>
+            Default InMemoryDb constructor with an empty list of tables
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryDb.ContainsTable(System.String)">
+            <summary>
+            Returns true if the InMemoryDb contains a table object with the specified name
+            </summary>
+            <param name="logicalName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryDb.ContainsTableMetadata(System.String)">
+            <summary>
+            Returns true if the InMemoryDb contains a table object with a non-empty entity metadata
+            </summary>
+            <param name="logicalName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryDb.GetTable(System.String)">
+            <summary>
+            Returns the table with the specified logical name
+            </summary>
+            <param name="logicalName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryDb.GetTableMetadata(System.String)">
+            <summary>
+            Returns the EntityMetadata for the specified logical name
+            </summary>
+            <param name="logicalName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryDb.AddTable(System.String,FakeXrmEasy.Core.Db.InMemoryTable@)">
+            <summary>
+            Adds and returns the table that was added. If a table with the same logicalName was added, this will raise an exception
+            </summary>
+            <param name="logicalName"></param>
+            <param name="table"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryDb.AddOrUpdateMetadata(System.String,Microsoft.Xrm.Sdk.Metadata.EntityMetadata)">
+            <summary>
+            Adds the specified entity metadata to this InMemory database
+            </summary>
+            <param name="logicalName"></param>
+            <param name="entityMetadata"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Db.InMemoryTable">
+            <summary>
+            A table object is a single entry point for anything related to that table (schema, entity records, etc)
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Core.Db.InMemoryTable._logicalName">
+            <summary>
+            The entity logical name for this table
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Core.Db.InMemoryTable._rows">
+            <summary>
+            Collection of entity records for this table
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Core.Db.InMemoryTable._metadata">
+            <summary>
+            The metadata definition for this table
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.#ctor(System.String)">
+            <summary>
+            Default constructor with no metadata and an empty records table
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.#ctor(System.String,Microsoft.Xrm.Sdk.Metadata.EntityMetadata)">
+            <summary>
+            Creates a new table with specific entity metadata
+            </summary>
+            <param name="logicalName"></param>
+            <param name="entityMetadata"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.Contains(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            Return true if the current table already contains this record
+            </summary>
+            <param name="e">The entity record to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.Contains(System.Guid)">
+            <summary>
+            Returns true if the current table contains a record with the specified id
+            </summary>
+            <param name="key">The primary key of the entity record</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.Add(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            Adds the entity record to the current table
+            </summary>
+            <param name="e">The entity record to add</param>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.Replace(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            Replaces the current entity record with the given id 
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.Remove(System.Guid)">
+            <summary>
+            Remove the entity record by primary key
+            </summary>
+            <param name="key">The primary key</param>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.GetById(System.Guid)">
+            <summary>
+            Returns a record by its primary key
+            </summary>
+            <param name="key">The primary key</param>
+            <returns></returns>
+        </member>
+        <member name="P:FakeXrmEasy.Core.Db.InMemoryTable.Rows">
+            <summary>
+            Returns an IEnumerable of all rows in the current table
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Db.InMemoryTable.SetMetadata(Microsoft.Xrm.Sdk.Metadata.EntityMetadata)">
+            <summary>
+            Sets the current metadata for this table
+            </summary>
+            <param name="entityMetadata"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Db.InMemoryTableMetadata">
+            <summary>
+            An InMemoryTableMetadata contains info about all the metadata of a given table
+            Column definitions, data ranges, and so on...
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Exceptions.FindReflectedTypeException">
+            <summary>
+            Exception raised when the generated early bound types have an unsupported format
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Exceptions.FindReflectedTypeException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Exceptions.FindReflectedTypeException.New(System.Reflection.ReflectionTypeLoadException)">
+            <summary>
+            Creates a FindReflectedException from a ReflectionTypeLoadException
+            </summary>
+            <param name="reflectionTypeLoadException"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Exceptions.MultipleEarlyBoundTypesFoundException">
+            <summary>
+            Exception raised when an early-bound type exists for the same logical name
+            or entity type code in more than one assembly and so it's impossible to decide which one should
+            be used 
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Exceptions.MultipleEarlyBoundTypesFoundException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a MultipleEarlyBoundTypesFoundException from a logical name
+            </summary>
+            <param name="logicalName">The searched logical name</param>
+            <param name="types">The types in which the logical name found</param>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Exceptions.MultipleEarlyBoundTypesFoundException.#ctor(System.Int32,System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Creates a MultipleEarlyBoundTypesFoundException from an EntityTypeCode
+            </summary>
+            <param name="entityTypeCode">The searched entity type code</param>
+            <param name="types">The types in which the entity type code was found</param>
+        </member>
+        <member name="P:FakeXrmEasy.Core.Exceptions.MultipleEarlyBoundTypesFoundException.Message">
+            <summary>
+            Returns the message along with the assemblies that caused this exception
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Exceptions.Query.CantSetBothPageInfoAndTopCountException">
+            <summary>
+            Exception thrown when both PageInfo and TopCount properties are set in a query.  More info: https://docs.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.query.querybyattribute.topcount?view=dynamics-general-ce-9
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Exceptions.Query.CantSetBothPageInfoAndTopCountException.New(System.Int32)">
+            <summary>
+            Throws a new FaulException using a platform error
+            </summary>
+            <param name="topCountValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Exceptions.Query.FetchXml.Aggregations.UnhandledPropertyTypeException">
+            <summary>
+            Exception thrown when there is an aggregate function against an attribute type which is not supported
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Exceptions.Query.FetchXml.Aggregations.UnhandledPropertyTypeException.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="unhandledType">The unsupported attribute type</param>
+            <param name="agrFn">The aggregate function ('min')</param>
+        </member>
+        <member name="T:FakeXrmEasy.Core.Exceptions.Query.FetchXml.Aggregations.UnknownAggregateFunctionException">
+            <summary>
+            Exception thrown when the aggregation function in FetchXml aggregation is unknown
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Core.Exceptions.Query.FetchXml.Aggregations.UnknownAggregateFunctionException.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="agrFn">The name of the unknown aggregate function</param>
+        </member>
+        <member name="T:FakeXrmEasy.Exceptions.OrganizationRequestExtensionsExceptions.ToInvalidOrganizationRequestException">
+            <summary>
+            Exception thrown when trying to use one of the OrganizationRequest 
+            extension methods to convert generic requests to its strongly-typed versions
+            when the type your trying to convert to doesn't match the original
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Exceptions.OrganizationRequestExtensionsExceptions.ToInvalidOrganizationRequestException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.DateTimeExtensions">
+            <summary>
+            DateTime Extensions
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToDayOfWeek(System.DateTime,System.Int32,System.DayOfWeek)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <param name="week"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToDayOfDeltaWeek(System.DateTime,System.Int32,System.DayOfWeek)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <param name="deltaWeek"></param>
+            <param name="dayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToLastDayOfDeltaWeek(System.DateTime,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <param name="deltaWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToFirstDayOfDeltaWeek(System.DateTime,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <param name="deltaWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToFirstDayOfWeek(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToFirstDayOfMonth(System.DateTime,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToFirstDayOfMonth(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToLastDayOfMonth(System.DateTime,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.DateTimeExtensions.ToLastDayOfMonth(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.EntityExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.AddAttribute(Microsoft.Xrm.Sdk.Entity,System.String,System.Object)">
+            <summary>
+            Extension method to add an attribute and return the entity itself
+            </summary>
+            <param name="e"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.ProjectAttributes(Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Query.ColumnSet,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Projects the attributes of entity e so that only the attributes specified in the columnSet are returned
+            </summary>
+            <param name="e"></param>
+            <param name="columnSet"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.ApplyDateBehaviour(Microsoft.Xrm.Sdk.Entity,FakeXrmEasy.XrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.ProjectAttributes(Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Query.LinkEntity,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="projected"></param>
+            <param name="le"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.ProjectAttributes(Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Query.QueryExpression,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="qe"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.RemoveNullAttributes(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.CloneAttribute(System.Object,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="attributeValue"></param>
+            <param name="context"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.Clone(Microsoft.Xrm.Sdk.Entity,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.Clone``1(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.Clone(Microsoft.Xrm.Sdk.Entity,System.Type,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="t"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.JoinAttributes(Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Query.ColumnSet,System.String,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Extension method to join the attributes of entity e and otherEntity
+            </summary>
+            <param name="e"></param>
+            <param name="otherEntity"></param>
+            <param name="columnSet"></param>
+            <param name="alias"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.JoinAttributes(Microsoft.Xrm.Sdk.Entity,System.Collections.Generic.IEnumerable{Microsoft.Xrm.Sdk.Entity},Microsoft.Xrm.Sdk.Query.ColumnSet,System.String,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="otherEntities"></param>
+            <param name="columnSet"></param>
+            <param name="alias"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.KeySelector(Microsoft.Xrm.Sdk.Entity,System.String,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Returns the key for the attribute name selected (could an entity reference or a primary key or a guid)
+            </summary>
+            <param name="e"></param>
+            <param name="sAttributeName"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.Inject(Microsoft.Xrm.Sdk.Entity,System.String,System.Object)">
+            <summary>
+            Extension method to "hack" internal set properties on sealed classes via reflection
+            </summary>
+            <param name="e"></param>
+            <param name="property"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.SetValueIfEmpty(Microsoft.Xrm.Sdk.Entity,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="property"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityExtensions.ToEntityReferenceWithKeyAttributes(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            ToEntityReference implementation that converts an entity into an entity reference with key attribute info as well
+            </summary>
+            <param name="e">Entity to convert to an Entity Reference</param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.EntityMetadataExtensions">
+            <summary>
+            EntityMetadata Extensions
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityMetadataExtensions.SetAttributeCollection(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,Microsoft.Xrm.Sdk.Metadata.AttributeMetadata[])">
+            <summary>
+            
+            </summary>
+            <param name="entityMetadata"></param>
+            <param name="attributes"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityMetadataExtensions.SetAttribute(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,Microsoft.Xrm.Sdk.Metadata.AttributeMetadata)">
+            <summary>
+            
+            </summary>
+            <param name="entityMetadata"></param>
+            <param name="attribute"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityMetadataExtensions.SetAttributeCollection(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.Collections.Generic.IEnumerable{Microsoft.Xrm.Sdk.Metadata.AttributeMetadata})">
+            <summary>
+            
+            </summary>
+            <param name="entityMetadata"></param>
+            <param name="attributes"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityMetadataExtensions.SetSealedPropertyValue(Microsoft.Xrm.Sdk.Metadata.EntityMetadata,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="entityMetadata"></param>
+            <param name="sPropertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityMetadataExtensions.SetSealedPropertyValue(Microsoft.Xrm.Sdk.Metadata.AttributeMetadata,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="attributeMetadata"></param>
+            <param name="sPropertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityMetadataExtensions.SetSealedPropertyValue(Microsoft.Xrm.Sdk.Metadata.ManyToManyRelationshipMetadata,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="manyToManyRelationshipMetadata"></param>
+            <param name="sPropertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityMetadataExtensions.SetSealedPropertyValue(Microsoft.Xrm.Sdk.Metadata.OneToManyRelationshipMetadata,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="oneToManyRelationshipMetadata"></param>
+            <param name="sPropertyName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.EntityReferenceExtensions">
+            <summary>
+            EntityReference Extensions
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.EntityReferenceExtensions.HasKeyAttributes(Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            
+            </summary>
+            <param name="er"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.IXrmFakedContextExtensionsMetadata">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.ObjectExtensions">
+            <summary>
+            Deep cloning of the object
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ObjectExtensions.IsPrimitive(System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ObjectExtensions.GetFieldValue(System.Object,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="fieldName"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ObjectExtensions.SetFieldValue(System.Object,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="fieldName"></param>
+            <param name="val"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ObjectExtensions.Copy(System.Object)">
+            <summary>
+            Produces a deep copy of a given object
+            </summary>
+            <param name="originalObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ObjectExtensions.Copy``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.ReferenceEqualityComparer">
+            <summary>
+            Reference Equality Comparer
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ReferenceEqualityComparer.Equals(System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ReferenceEqualityComparer.GetHashCode(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.ArrayExtensions">
+            <summary>
+            Array Extensions
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.ArrayExtensions.ForEach(System.Array,System.Action{System.Array,System.Int32[]})">
+            <summary>
+            Execute action for each element of the array
+            </summary>
+            <param name="array"></param>
+            <param name="action"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.OptionSetValueCollectionExtensions">
+            <summary>
+            Extension methods for OptionSetValue Collection
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OptionSetValueCollectionExtensions.ConvertToHashSetOfInt(System.Object,System.Boolean)">
+            <summary>
+            Converts current OptionSetValueCollection to a HashSet&lt;int&gt; values
+            </summary>
+            <param name="input"></param>
+            <param name="isOptionSetValueCollectionAccepted"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions">
+            <summary>
+            Extension methods for OrganizationRequest 
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.IsCreateRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the request is a strongly-typed CreateRequest or its equivalent generic OrganizationRequest
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.IsUpdateRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the request is a strongly-typed UpdateRequest or its equivalent generic OrganizationRequest
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.IsDeleteRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the request is a strongly-typed DeleteRequest or its equivalent generic OrganizationRequest
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.IsRetrieveRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the request is a strongly-typed RetrieveRequest or its equivalent generic OrganizationRequest
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.IsRetrieveMultipleRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the request is a strongly-typed RetrieveMultipleRequest or its equivalent generic OrganizationRequest
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.ToCreateRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns a consistent stronly-typed CreateRequest regardless if the original was strongly-typed or not.
+            Will throw an exception if it's not a valid request to convert to
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.ToUpdateRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns a consistent stronly-typed UpdateRequest regardless if the original was strongly-typed or not.
+            Will throw an exception if it's not a valid request to convert to
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.ToDeleteRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns a consistent stronly-typed DeleteRequest regardless if the original was strongly-typed or not.
+            Will throw an exception if it's not a valid request to convert to
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.ToRetrieveRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns a consistent stronly-typed RetrieveRequest regardless if the original was strongly-typed or not.
+            Will throw an exception if it's not a valid request to convert to
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.ToRetrieveMultipleRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns a consistent stronly-typed RetrieveMultipleRequest regardless if the original was strongly-typed or not.
+            Will throw an exception if it's not a valid request to convert to
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.IsCrudRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the request is a Crud organization request
+            </summary>
+            <param name="request">The request to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.OrganizationRequests.OrganizationRequestExtensions.ToStronglyTypedCrudRequest(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Converts a CRUD request to its strongly typed version
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.TypeExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.TypeExtensions.IsOptionSet(System.Type)">
+            <summary>
+            Returns true if the type is an OptionSetValue
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.TypeExtensions.IsOptionSetValueCollection(System.Type)">
+            <summary>
+            Returns true if the type is an OptionSetValueCollection
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.TypeExtensions.IsDateTime(System.Type)">
+            <summary>
+            Returns true if the type is a DateTime
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.TypeExtensions.IsNullableEnum(System.Type)">
+            <summary>
+            Returns true if the type is a Nullable Enum
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.TypeExtensions.GetEarlyBoundTypeAttribute(System.Type,System.String)">
+            <summary>
+            Gets the PropertyInfo for an attribute of an earlybound type
+            </summary>
+            <param name="earlyBoundType"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.IsAttributeTrue(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="elem"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.HasAggregations(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="doc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.IsDistincFetchXml(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="doc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.IsFetchXmlNodeValid(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="elem"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.GetAttribute(System.Xml.Linq.XElement,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="elem"></param>
+            <param name="sAttributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToColumnSet(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToTopCount(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToCount(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToReturnTotalRecordCount(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToPageNumber(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToColumnSet(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToTopCount(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToCount(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToReturnTotalRecordCount(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToPageNumber(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToCriteria(System.Xml.Linq.XDocument,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.GetAssociatedEntityNameForConditionExpression(System.Xml.Linq.XElement)">
+            <summary>
+            
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToLinkEntity(System.Xml.Linq.XElement,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="el"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToLinkEntities(System.Xml.Linq.XDocument,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToOrderExpressionList(System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToFilterExpression(System.Xml.Linq.XElement,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="elem"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToValue(System.Xml.Linq.XElement,FakeXrmEasy.Abstractions.IXrmFakedContext,System.String,System.String,Microsoft.Xrm.Sdk.Query.ConditionOperator)">
+            <summary>
+            
+            </summary>
+            <param name="elem"></param>
+            <param name="ctx"></param>
+            <param name="sEntityName"></param>
+            <param name="sAttributeName"></param>
+            <param name="op"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ToConditionExpression(System.Xml.Linq.XElement,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="elem"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.GetValueBasedOnType(System.Type,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="t"></param>
+            <param name="value"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.ValueNeedsConverting(Microsoft.Xrm.Sdk.Query.ConditionOperator)">
+            <summary>
+            
+            </summary>
+            <param name="conditionOperator"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.GetConditionExpressionValueCast(System.String,FakeXrmEasy.Abstractions.IXrmFakedContext,System.String,System.String,Microsoft.Xrm.Sdk.Query.ConditionOperator)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="ctx"></param>
+            <param name="sEntityName"></param>
+            <param name="sAttributeName"></param>
+            <param name="op"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Extensions.FetchXml.XmlExtensionsForFetchXml.RetrieveFetchXmlNode(System.Xml.Linq.XDocument,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="xlDoc"></param>
+            <param name="sName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.FakeOrganizationServiceFaultFactory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.FakeOrganizationServiceFaultFactory.New(FakeXrmEasy.Abstractions.ErrorCodes,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="errorCode"></param>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.FakeOrganizationServiceFaultFactory.New(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Integrity.IntegrityOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Integrity.IntegrityOptions.ValidateEntityReferences">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Integrity.IntegrityOptions.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Metadata.DateTimeAttributeBehavior">
+            <summary>
+              <para>Specifies the behavior of a <see cref="T:Microsoft.Xrm.Sdk.Metadata.DateTimeAttributeMetadata" /> attribute using the <see cref="P:Microsoft.Xrm.Sdk.Metadata.DateTimeAttributeMetadata.DateTimeBehavior" /> property.</para>
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Metadata.DateTimeAttributeBehavior.UserLocal">
+            <summary>
+              <para>Stores the date and time value with current user local time zone information. Value = 1.</para>
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Metadata.DateTimeAttributeBehavior.DateOnly">
+            <summary>
+              <para>Stores the date value with the time value as 12:00 AM (00:00:00) without the time zone information. Value = 2.</para>
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Metadata.DateTimeAttributeBehavior.TimeZoneIndependent">
+            <summary>
+              <para>Stores the date and time values without the time zone information. Value = 3.</para>
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Metadata.OptionSetMetadataRepository">
+            <summary>
+            OptionSetMetadata Repository
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.OptionSetMetadataRepository.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.OptionSetMetadataRepository.CreateQuery">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.OptionSetMetadataRepository.GetByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sGlobalOptionSetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.OptionSetMetadataRepository.Set(System.String,Microsoft.Xrm.Sdk.Metadata.OptionSetMetadata)">
+            <summary>
+            
+            </summary>
+            <param name="sGlobalOptionSetName"></param>
+            <param name="metadata"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository">
+            <summary>
+            This repository contains metadata for the global option sets
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.CreateQuery">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.GetByAttributeName(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="entityName"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.GetByGlobalOptionSetName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.Set(System.String,Microsoft.Xrm.Sdk.Metadata.StatusAttributeMetadata)">
+            <summary>
+            
+            </summary>
+            <param name="globalOptionSetName"></param>
+            <param name="metadata"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.Set(System.String,System.String,Microsoft.Xrm.Sdk.Metadata.StatusAttributeMetadata)">
+            <summary>
+            
+            </summary>
+            <param name="entityName"></param>
+            <param name="attributeName"></param>
+            <param name="metadata"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.AddOrSet(System.String,Microsoft.Xrm.Sdk.Metadata.StatusAttributeMetadata)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="metadata"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.GetFromKey(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.GetOptionSetKey(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Metadata.StatusAttributeMetadataRepository.GetAttributeKey(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="entityName"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.AssociateRequestExecutor">
+            <summary>
+            Implementation of the Associate Request
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.AssociateRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if request is of type AssociateRequest
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.AssociateRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Fake implementation of the AssociateRequest
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.AssociateRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            Returns AssociateRequest
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.CreateRequestExecutor">
+            <summary>
+            CreateRequest Executor
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.CreateRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.CreateRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.CreateRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            Returns CreateRequest
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DeleteRequestExecutor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DeleteRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DeleteRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DeleteRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DisassociateRequestExecutor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DisassociateRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DisassociateRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.DisassociateRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveMultipleRequestExecutor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveMultipleRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveMultipleRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="req"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveMultipleRequestExecutor.PopulateFormattedValues(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            Populates the formatted values property of this entity record based on the proxy types
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveMultipleRequestExecutor.GetFormattedValueForValue(System.Object,System.Boolean@)">
+            <summary>
+            
+            </summary>
+            <param name="value"></param>
+            <param name="bShouldAddFormattedValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveMultipleRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveRequestExecutor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Executes this RetrieveRequest executor
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.RetrieveRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpdateRequestExecutor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpdateRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpdateRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpdateRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpsertRequestExecutor">
+            <summary>
+            Fake Message executor for Upsert requests
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpsertRequestExecutor.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if this message executor can execute the specified request
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpsertRequestExecutor.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Executes the current request with the given context
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.FakeMessageExecutors.UpsertRequestExecutor.GetResponsibleRequestType">
+            <summary>
+            Gets request type that will execute this request
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Crud.MiddlewareBuilderCrudExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.MiddlewareBuilderCrudExtensions.AddCrud(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.MiddlewareBuilderCrudExtensions.AddCrud(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,FakeXrmEasy.Abstractions.Integrity.IIntegrityOptions)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="integrityOptions"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Crud.MiddlewareBuilderCrudExtensions.UseCrud(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions">
+            <summary>
+            Extension methods to configure fake messages execution in the middleware
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.AddFakeMessageExecutors(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,System.Reflection.Assembly)">
+            <summary>
+            This methods discovers all IFakeMessageExecutor implementations in the current assembly and adds them to the context builder
+            </summary>
+            <param name="builder"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.AddGenericFakeMessageExecutors(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,System.Reflection.Assembly)">
+            <summary>
+            Discovers all generic fake message executors in the current executing assembly and adds them to the context
+            </summary>
+            <param name="builder"></param>
+            <param name="assembly">The Assembly to search generic fake message executors in, or the executing assembly by default</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.AddFakeMessageExecutor(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,FakeXrmEasy.Abstractions.FakeMessageExecutors.IFakeMessageExecutor)">
+            <summary>
+            Adds a particular fake message executor to the available fake message executors. If there was one executor for the same OrganizationRequest,
+            it'll be replaced with this new instance
+            </summary>
+            <param name="builder"></param>
+            <param name="executor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.AddFakeMessageExecutor``1(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,FakeXrmEasy.Abstractions.FakeMessageExecutors.IFakeMessageExecutor)">
+            <summary>
+            Adds a particular fake message executor to the available fake message executors that will be executed when to the given OrganizationRequest is requested. 
+            If there was one executor for the same OrganizationRequest, it'll be replaced with this new instance
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="executor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.RemoveFakeMessageExecutor``1(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.AddExecutionMock``1(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,FakeXrmEasy.Abstractions.FakeMessageExecutors.OrganizationRequestExecution)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <param name="mock"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.RemoveExecutionMock``1(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.AddGenericFakeMessageExecutor(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,System.String,FakeXrmEasy.Abstractions.FakeMessageExecutors.IFakeMessageExecutor)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="message"></param>
+            <param name="executor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.RemoveGenericFakeMessageExecutor(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,System.String,FakeXrmEasy.Abstractions.FakeMessageExecutors.IFakeMessageExecutor)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+            <param name="message"></param>
+            <param name="executor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Messages.MiddlewareBuilderMessagesExtensions.UseMessages(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder)">
+            <summary>
+            Implements the handling of fake message executors, generic fake message executors, and execution mocks in the pipeline
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.MiddlewareBuilder">
+            <summary>
+            Middleware Builder
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.MiddlewareBuilder.New">
+            <summary>
+            New
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.MiddlewareBuilder.Add(System.Action{FakeXrmEasy.Abstractions.IXrmFakedContext})">
+            <summary>
+            
+            </summary>
+            <param name="addToContextAction"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.MiddlewareBuilder.Use(System.Func{FakeXrmEasy.Abstractions.Middleware.OrganizationRequestDelegate,FakeXrmEasy.Abstractions.Middleware.OrganizationRequestDelegate})">
+            <summary>
+            
+            </summary>
+            <param name="middleware"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.MiddlewareBuilder.Build">
+            <summary>
+            Build
+            </summary>
+            <returns></returns>
+            <exception cref="T:FakeXrmEasy.Abstractions.Exceptions.LicenseException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.MiddlewareBuilder.SetLicense(FakeXrmEasy.Abstractions.Enums.FakeXrmEasyLicense)">
+            <summary>
+            FakeXrmEasy can be used under 3 different licences, this method defines the license. More info at: https://dynamicsvalue.github.io/fake-xrm-easy-docs/licensing/license/
+            </summary>
+            <param name="license"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.MiddlewareBuilder.SetSubscriptionStorageProvider(FakeXrmEasy.Abstractions.CommercialLicense.ISubscriptionStorageProvider,System.Boolean,System.Boolean)">
+            <summary>
+            Use this method to provide an implementation for a subscription storage provider when you are using a commercial license and have a license key 
+            </summary>
+            <param name="storageProvider">An implementation of a ISubscriptionStorageProvider that is capable of reading and writing subscription usage data as well as your license key</param>
+            <param name="upgradeRequested">Set to true if you exceeded the number of users that your current subscription allows and you have already requested an upgrade to DynamicsValue via your organisation's established process</param>
+            <param name="renewalRequested">Set to true if your subscription expired and you have already requested an renewal to DynamicsValue via your organisation's established process</param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.XrmFakedContextFactory">
+            <summary>
+            XrmFakedContextFactory contains helper methods to setup the middleware in a number of different scenarios
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.XrmFakedContextFactory.New(FakeXrmEasy.Abstractions.Enums.FakeXrmEasyLicense)">
+            <summary>
+            Used to create a IXrmFakedContext with default middleware settings
+            </summary>
+            <param name="license">The license to use</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.XrmFakedContextFactory.New(FakeXrmEasy.Abstractions.Enums.FakeXrmEasyLicense,FakeXrmEasy.Abstractions.Integrity.IIntegrityOptions)">
+            <summary>
+            Used to create a IXrmFakedContext with specific integrity options
+            </summary>
+            <param name="license">The license to use</param>
+            <param name="integrityOptions">The integrity options</param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Permissions.AccessRightsRepository">
+            <summary>
+            Access Rights Repository
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Permissions.AccessRightsRepository._accessRights">
+            <summary>
+            Dictionary of access rights
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.#ctor">
+            <summary>
+            Access Rights Repository
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.GrantAccessTo(Microsoft.Xrm.Sdk.EntityReference,Microsoft.Crm.Sdk.Messages.PrincipalAccess)">
+            <summary>
+            Grants the specified rights to the security principal (user or team) for the specified record
+            </summary>
+            <param name="er"></param>
+            <param name="pa"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.ModifyAccessOn(Microsoft.Xrm.Sdk.EntityReference,Microsoft.Crm.Sdk.Messages.PrincipalAccess)">
+            <summary>
+            Modify access on a specific record
+            </summary>
+            <param name="er">The entity for which we are modifying permissions</param>
+            <param name="pa">The permissions to overwrite</param>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.RetrievePrincipalAccess(Microsoft.Xrm.Sdk.EntityReference,Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            Retrieves the RetrievePrincipalAccessResponse for the specified security principal (user or team) and record
+            </summary>
+            <param name="er"></param>
+            <param name="principal"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.RetrieveSharedPrincipalsAndAccess(Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            Retrieves the list of permitted security principals (user or team) that have access to the given record
+            </summary>
+            <param name="er"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.RevokeAccessTo(Microsoft.Xrm.Sdk.EntityReference,Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            Revokes the specified rights to the security principal (user or team) for the specified record
+            </summary>
+            <param name="er"></param>
+            <param name="principal"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.GetAllPrincipalAccessFor(Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            Retrieves all principals (security principals) who have any access to the specified record
+            </summary>
+            <param name="er"></param>
+        </member>
+        <member name="M:FakeXrmEasy.Permissions.AccessRightsRepository.GetAccessListForRecord(Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            Fetches the List&lt;PrincipalAccess&gt; for the given EntityReference
+            </summary>
+            <param name="er"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Query.ConditionExpressionExtensions">
+            <summary>
+            ConditionExpression Extensions
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Query.ConditionExpressionExtensions.ToBetweenDatesExpression(FakeXrmEasy.Query.TypedConditionExpression,System.Linq.Expressions.Expression,System.Linq.Expressions.Expression,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Takes a condition expression which needs translating into a 'between two dates' expression and works out the relevant dates
+            </summary>        
+        </member>
+        <member name="T:FakeXrmEasy.Query.ExpressionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Query.FetchXmlExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Query.FetchXmlExtensions.ToQueryExpression(System.String,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="fetchXml"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Query.FetchXmlExtensions.ToXmlDocument(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="fetchXml"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.Query.FetchXmlExtensions.Aggregate(System.Collections.Generic.List{Microsoft.Xrm.Sdk.Entity},FakeXrmEasy.XrmFakedContext,System.Xml.Linq.XDocument)">
+            <summary>
+            
+            </summary>
+            <param name="resultOfQuery"></param>
+            <param name="ctx"></param>
+            <param name="xmlDoc"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+            <exception cref="T:FakeXrmEasy.Core.Exceptions.Query.FetchXml.Aggregations.UnknownAggregateFunctionException"></exception>
+        </member>
+        <member name="T:FakeXrmEasy.Query.FetchXmlExtensions.ArrayComparer">
+            <summary>
+            Used to compare array of objects, in order to group by a variable number of conditions.
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Query.FilterExpressionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Query.LinkEntityQueryExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Query.QueryExpressionExtensions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Query.QueryExpressionExtensions.GetEntityNameFromAlias(Microsoft.Xrm.Sdk.Query.QueryExpression,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="qe"></param>
+            <param name="sAlias"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Query.QueryExpressionExtensions.Clone(Microsoft.Xrm.Sdk.Query.QueryExpression)">
+            <summary>
+            Makes a deep clone of the Query Expression
+            </summary>
+            <param name="qe">Query Expression</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Query.QueryExpressionExtensions.ToQueryable(Microsoft.Xrm.Sdk.Query.QueryExpression,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="qe"></param>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Query.TypeCastExpressions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Query.TypedConditionExpression">
+            <summary>
+            A condition expression with a decorated type of the attribute in the condition expression
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Query.TypedConditionExpression.CondExpression">
+            <summary>
+            The original condition expression
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Query.TypedConditionExpression.AttributeType">
+            <summary>
+            The attribute type of the condition expression, if known (i.e. was generated via a strongly-typed generation tool)
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Query.TypedConditionExpression.IsOuter">
+            <summary>
+            True if the condition came from a left outer join, in which case should be applied only if not null
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Query.TypedConditionExpression.#ctor(Microsoft.Xrm.Sdk.Query.ConditionExpression)">
+            <summary>
+            Creates a TypedConditionExpression from an existing ConditionExpression with no attribute type information
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Services.EntityInitializationLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Services.EntityInitializationLevel.Default">
+            <summary>
+            Minimal initialization of common attributes
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Services.EntityInitializationLevel.PerEntity">
+            <summary>
+            More detailed initialization of entities, on an entity per entity basis
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Services.DefaultEntityInitializerService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Services.DefaultEntityInitializerService.InitializerServiceDictionary">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Services.DefaultEntityInitializerService.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Services.DefaultEntityInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,System.Guid,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="gCallerId"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Services.DefaultEntityInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Services.InvoiceDetailInitializerService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Services.InvoiceDetailInitializerService.EntityLogicalName">
+            <summary>
+            Entity LogicalName
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Services.InvoiceDetailInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,System.Guid,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="gCallerId"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Services.InvoiceDetailInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Services.InvoiceInitializerService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Services.InvoiceInitializerService.EntityLogicalName">
+            <summary>
+            Entity LogicalName
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Services.InvoiceInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,System.Guid,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="gCallerId"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Services.InvoiceInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Services.IEntityInitializerService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Services.IEntityInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Services.IEntityInitializerService.Initialize(Microsoft.Xrm.Sdk.Entity,System.Guid,FakeXrmEasy.XrmFakedContext,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <param name="gCallerId"></param>
+            <param name="ctx"></param>
+            <param name="isManyToManyRelationshipEntity"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.XrmFakedContext">
+            <summary>
+            A fake context that stores In-Memory entites indexed by logical name and then Entity records, simulating
+            how entities are persisted in Tables (with the logical name) and then the records themselves
+            where the Primary Key is the Guid
+            </summary>
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.LicenseContext">
+            <summary>
+            Stores the current license context (the current selected license of the 3 available licenses)
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.XrmFakedContext.EntityActiveStateCode">
+            <summary>
+            Entity Active StateCode
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.XrmFakedContext.EntityInactiveStateCode">
+            <summary>
+            Entity Inactive StateCode
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetRecordUniqueId(Microsoft.Xrm.Sdk.EntityReference,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="record"></param>
+            <param name="validate"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.UpdateEntity(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            Updates an entity in the context directly (i.e. skips any middleware setup)
+            </summary>
+            <param name="e"></param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetEntityById(System.String,System.Guid)">
+            <summary>
+            Returns an entity record by logical name and primary key
+            </summary>
+            <param name="logicalName"></param>
+            <param name="id"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.ContainsEntity(System.String,System.Guid)">
+            <summary>
+            Returns true if the entity record with the specified logical name and id exists in the InMemory database
+            </summary>
+            <param name="sLogicalName"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetEntityById``1(System.Guid)">
+            <summary>
+            Returns a strongly-typed entity record by Id and its class name
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.ResolveEntityReference(Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            
+            </summary>
+            <param name="er"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.ResolveEntityReferenceByAlternateKeys(Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            
+            </summary>
+            <param name="er"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.DeleteEntity(Microsoft.Xrm.Sdk.EntityReference)">
+            <summary>
+            Fakes the delete method. Very similar to the Retrieve one
+            </summary>
+            <param name="er"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.AddEntityDefaultAttributes(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.ValidateEntity(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.CreateEntity(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.AddEntityWithDefaults(Microsoft.Xrm.Sdk.Entity,System.Boolean)">
+            <summary>
+            Adds an entity record to the in-memory database with some default values for out of the box attributes
+            </summary>
+            <param name="e">Entity record to add</param>
+            <param name="clone">True if it should clone the entity record before adding it</param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.AddEntity(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            
+            </summary>
+            <param name="e"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.ConvertToUtc(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="attribute"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FakeXrmEasy.XrmFakedContext._builder">
+            <summary>
+            Internal middleware setup
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.XrmFakedContext._service">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.PluginContextProperties">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext._proxyTypesAssemblies">
+            <summary>
+            All proxy type assemblies available on mocked database.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.ProxyTypesAssemblies">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.Initialised">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.Db">
+            <summary>
+            Internal In-Memory Database
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.ProxyTypesAssembly">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.CallerId">
+            <summary>
+            Sets the user to assign the CreatedBy and ModifiedBy properties when entities are added to the context.
+            All requests will be executed on behalf of this user
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.BusinessUnitId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.XrmFakedContext.ServiceRequestExecution">
+            <summary>
+            
+            </summary>
+            <param name="req"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.Relationships">
+            <summary>
+            Relationships
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.EntityInitializerService">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.MaxRetrieveCount">
+            <summary>
+            Default max count value when retrieving data, defaults to 5000
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.InitializationLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.CallerProperties">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.#ctor(System.Nullable{FakeXrmEasy.Abstractions.Enums.FakeXrmEasyLicense})">
+            <summary>
+            
+            </summary>
+            <param name="license"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.HasProperty``1">
+            <summary>
+            Checks if this XrmFakedContext has a property of the given type
+            </summary>
+            <typeparam name="T">The property type</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetProperty``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.TypeAccessException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.SetProperty``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="property"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetOrganizationService">
+            <summary>
+            Returns an interface to an organization service that will execute requests according to the middleware setup
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetOrganizationServiceFactory">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetTracingService">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.Initialize(System.Collections.Generic.IEnumerable{Microsoft.Xrm.Sdk.Entity})">
+            <summary>
+            Initializes the context with the provided entities
+            </summary>
+            <param name="entities"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.Initialize(Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            Initializes the context with a single entity record
+            </summary>
+            <param name="entity">Entity record that will be used to initialize the In-Memory context</param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.EnableProxyTypes(System.Reflection.Assembly)">
+            <summary>
+            Enables support for the early-cound types exposed in a specified assembly.
+            </summary>
+            <param name="assembly">
+            An assembly containing early-bound entity types.
+            </param>
+            <remarks>
+            See issue #334 on GitHub. This has quite similar idea as is on SDK method
+            https://docs.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.client.organizationserviceproxy.enableproxytypes.
+            </remarks>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.AddFakeMessageExecutor``1(FakeXrmEasy.Abstractions.FakeMessageExecutors.IFakeMessageExecutor)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="executor"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.RemoveFakeMessageExecutor``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.AddGenericFakeMessageExecutor(System.String,FakeXrmEasy.Abstractions.FakeMessageExecutors.IFakeMessageExecutor)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="executor"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.RemoveGenericFakeMessageExecutor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.AddRelationship(System.String,FakeXrmEasy.Abstractions.XrmFakedRelationship)">
+            <summary>
+            
+            </summary>
+            <param name="schemaname"></param>
+            <param name="relationship"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.RemoveRelationship(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="schemaname"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetRelationship(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="schemaName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.AddAttributeMapping(System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sourceEntityName"></param>
+            <param name="sourceAttributeName"></param>
+            <param name="targetEntityName"></param>
+            <param name="targetAttributeName"></param>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetFakedOrganizationService">
+            <summary>
+            Deprecated. Use GetOrganizationService instead
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetFakedOrganizationService(FakeXrmEasy.XrmFakedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.NewEntityRecord(System.String)">
+            <summary>
+            Creates a new entity record that is consistent with the current use of early-bound or late-bound entities by the current context
+            </summary>
+            <param name="logicalName">The entity logical name of the entity</param>
+            <returns>An early-bound record dif the context is already using early-bound entity records, a late bound entity otherwise</returns>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.SystemTimeZone">
+            <summary>
+            System TimeZone
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedContext.AttributeMetadataNames">
+            <summary>
+            Stores some minimal metadata info if dynamic entities are used and no injected metadata was used
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.InitializeMetadata(System.Collections.Generic.IEnumerable{Microsoft.Xrm.Sdk.Metadata.EntityMetadata})">
+            <summary>
+            
+            </summary>
+            <param name="entityMetadataList"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.InitializeMetadata(Microsoft.Xrm.Sdk.Metadata.EntityMetadata)">
+            <summary>
+            
+            </summary>
+            <param name="entityMetadata"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.InitializeMetadata(System.Reflection.Assembly)">
+            <summary>
+            
+            </summary>
+            <param name="earlyBoundEntitiesAssembly"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.CreateMetadataQuery">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetEntityMetadataByName(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="sLogicalName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.SetEntityMetadata(Microsoft.Xrm.Sdk.Metadata.EntityMetadata)">
+            <summary>
+            
+            </summary>
+            <param name="em"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.GetAttributeMetadataFor(System.String,System.String,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="sEntityName"></param>
+            <param name="sAttributeName"></param>
+            <param name="attributeType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.FindReflectedType(System.String)">
+            <summary>
+            Finds the early-bound type based on an entity's logical name
+            </summary>
+            <param name="logicalName"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.FindReflectedType(System.Int32)">
+            <summary>
+            Finds the early-bound type based on an entity's generated type code
+            </summary>
+            <param name="entityTypeCode"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.FindReflectedType(System.String,System.Reflection.Assembly)">
+            <summary>
+            Finds reflected type for given entity from given assembly.
+            </summary>
+            <param name="logicalName">
+            Entity logical name which type is searched from given
+            <paramref name="assembly"/>.
+            </param>
+            <param name="assembly">
+            Assembly where early-bound type is searched for given
+            <paramref name="logicalName"/>.
+            </param>
+            <returns>
+            Early-bound type of <paramref name="logicalName"/> if it's found
+            from <paramref name="assembly"/>. Otherwise null is returned.
+            </returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.FindReflectedType(System.Int32,System.Reflection.Assembly)">
+            <summary>
+            Finds reflected type for given entity from given assembly.
+            </summary>
+            <param name="entityTypeCode">
+            Entity logical name which type is searched from given
+            <paramref name="assembly"/>.
+            </param>
+            <param name="assembly">
+            Assembly where early-bound type is searched for given
+            <paramref name="entityTypeCode"/>.
+            </param>
+            <returns>
+            Early-bound type of <paramref name="entityTypeCode"/> if it's found
+            from <paramref name="assembly"/>. Otherwise null is returned.
+            </returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.FindReflectedAttributeType(System.Type,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="earlyBoundType"></param>
+            <param name="sEntityName"></param>
+            <param name="attributeName"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.CreateQuery(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="entityLogicalName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.CreateQuery``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedContext.CreateQuery``1(System.String)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entityLogicalName"></param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:FakeXrmEasy.XrmFakedTracingService">
+            <summary>
+            A fake tracing service that stores all traces In-Memory and can then dump the entire trace log
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmFakedTracingService._trace">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedTracingService.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedTracingService.Trace(System.String,System.Object[])">
+            <summary>
+            
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmFakedTracingService.DumpTrace">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.XrmOrderByAttributeComparer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmOrderByAttributeComparer.Compare(System.Object,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="objectA"></param>
+            <param name="objectB"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.XrmRealContext">
+            <summary>
+            Reuse unit test syntax to test against a real CRM organisation
+            It uses a real CRM organisation service instance
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmRealContext.LicenseContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmRealContext.ConnectionStringName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmRealContext.CallerProperties">
+            <summary>
+            Use these user to impersonate calls
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.XrmRealContext.PluginContextProperties">
+            <summary>
+            Plugin Context Properties
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.XrmRealContext._service">
+            <summary>
+            Internal reference to an IOrganizationService.
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.XrmRealContext._fakeTracingService">
+            <summary>
+            A fake tracing service if one is needed
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.#ctor">
+            <summary>
+            A default constructor that will use a connection string with name fakexrmeasy-connection to establish a real connection to an environment for integration testing purposes
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.#ctor(System.String)">
+            <summary>
+            A constructor that will use a different connection string name
+            </summary>
+            <param name="connectionStringName"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.#ctor(Microsoft.Xrm.Sdk.IOrganizationService)">
+            <summary>
+            Creates an XrmRealContext that uses the specified IOrganizationService interface
+            </summary>
+            <param name="organizationService"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.Init">
+            <summary>
+            Initializes common properties across different constructors
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.HasProperty``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.GetProperty``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.TypeAccessException"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.SetProperty``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="property"></param>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.GetOrganizationService">
+            <summary>
+            Returns the internal organization service reference
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.GetOrgService">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:FakeXrmEasy.XrmRealContext.GetTracingService">
+            <summary>
+            Returns a default ITracingService that will store all traces In-Memory
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

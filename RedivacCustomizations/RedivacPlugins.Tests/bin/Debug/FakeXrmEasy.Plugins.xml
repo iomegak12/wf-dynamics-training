@@ -1,0 +1,2155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FakeXrmEasy.Plugins</name>
+    </assembly>
+    <members>
+        <member name="T:FakeXrmEasy.Plugins.Audit.IXrmFakedContextPluginStepAuditExtensions">
+            <summary>
+            IXrmFakedContext plugin step audit extensions
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Audit.IXrmFakedContextPluginStepAuditExtensions.GetPluginStepAudit(FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Returns an audit of all the plugin steps that were executed as part of pipeline simulation
+            </summary>
+            <param name="context">The context to where retrieve a plugin step audit from</param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Audit.IPluginStepAudit">
+            <summary>
+            Interface to interact with auditing of plugin steps when using pipeline simulation
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Audit.IPluginStepAudit.CreateQuery">
+            <summary>
+            Creates a query against all the plugin steps that were executed by the pipeline simulation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Audit.PluginStepAudit">
+            <summary>
+            Stores and interacts an audit of all the plugin steps executed when pipeline simulation is enabled
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Audit.PluginStepAudit.#ctor">
+            <summary>
+            Default constructor. Creates an empty audit of plugin steps.
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Audit.PluginStepAudit.CreateQuery">
+            <summary>
+            Creates a query against all the plugin steps that were executed by the pipeline simulation
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Audit.PluginStepAudit.Add(FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails)">
+            <summary>
+            Internal. Adds a new plugin step audit details to the current PluginStepAudit
+            </summary>
+            <param name="details"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails">
+            <summary>
+            Stores information about a given plugin step execution
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.ExecutedOn">
+            <summary>
+            Timestamp of when this plugin step was executed, in UTC
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.PluginStepId">
+            <summary>
+            Id of the plugin step that was executed
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.Stage">
+            <summary>
+            Stage that triggered this plugin execution
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.MessageName">
+            <summary>
+            Message that triggered this execution (i.e. Create, Update, and so on...)
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.TargetEntity">
+            <summary>
+            Target entity that triggered this plugin execution or null
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.TargetEntityReference">
+            <summary>
+            Target EntityReference that triggered this plugin execution or null
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.PluginAssemblyType">
+            <summary>
+            Type of the plugin assembly that was triggered in this execution
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.InputParameters">
+            <summary>
+            InputParameters that were part of the plugin execution
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.OutputParameters">
+            <summary>
+            OutputParameters that were part of the plugin execution
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Audit.PluginStepAuditDetails.PluginStepDefinition">
+            <summary>
+            The plugin step definition that triggered the plugin execution
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Audit.PluginStepAuditNotEnabledException">
+            <summary>
+            Exception thrown when querying plugin step audit without enabling them in the pipeline first
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Audit.PluginStepAuditNotEnabledException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Definitions.IPluginImageDefinition">
+            <summary>
+             Contains necessary registration info of a plugin image used in Pipeline Simulation
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginImageDefinition.Name">
+            <summary>
+            Name of the plugin image definition
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginImageDefinition.ImageType">
+            <summary>
+            Type of Image: PreImage, PostImage, or Both
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginImageDefinition.Attributes">
+            <summary>
+            Attributes that this plugin image contains
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Definitions.IPluginStepConfigurations">
+            <summary>
+            Allows setting secure and unsecure configurations as part of a plugin registration
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepConfigurations.SecureConfig">
+            <summary>
+            The secure configuration string
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepConfigurations.UnsecureConfig">
+            <summary>
+            The unsecure configuration string
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepConfigurations.SecureConfigId">
+            <summary>
+            Optional. The identifier of the secure configuration
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition">
+            <summary>
+            Interface that contains all the necessary information to register a plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.Id">
+            <summary>
+            Primary key of the stored sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.Stage">
+            <summary>
+            Stage where this plugins runs.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.MessageName">
+            <summary>
+            Name of the OrganizationRequest that triggers this plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.Mode">
+            <summary>
+            Mode of this plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.EntityLogicalName">
+            <summary>
+            Entity Logical Name or null, the plugin will only execute for these entities if specified. 
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.EntityTypeCode">
+            <summary>
+            If present, the plugin will only execute for entities whose EntityTypeCode matches this value, or any entity otherwise
+            EntityTypeCode will throw an exception if also EntityLogicalName was set
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.Rank">
+            <summary>
+            The order in which this plugin will run relative to other plugin steps of the same stage and mode
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.FilteringAttributes">
+            <summary>
+            The attributes used to filter the execution of this plugin. The plugin will only execute if any of the attributes are present in the request,
+            or will run regardless of any attributes if empty
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.AssemblyName">
+            <summary>
+            The name of the assembly where the plugin type will be searched and executed
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.PluginType">
+            <summary>
+            Type of the plugin to be executed (the plugin class name)
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.ImagesDefinitions">
+            <summary>
+            Any plugin images to be registered for this plugin step, or null or empty
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.Configurations">
+            <summary>
+            Stores information about the secure and unsecure configurations of this plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition.PluginInstance">
+            <summary>
+            Optional. Specific plugin instance that will be executed instead of the plugin parameterless constructor or configurations constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Extensions.EntityExtensions">
+            <summary>
+            Entity extensions
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Extensions.EntityExtensions.ReplaceAttributesWith(Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Entity)">
+            <summary>
+            Replaces existing attributes in entity1, with the values from entity2
+            </summary>
+            <param name="entity1"></param>
+            <param name="entity2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions">
+            <summary>
+            Adds extension methods to an IXrmBaseContext useful for developing and testing plugins
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.GetDefaultPluginContext(FakeXrmEasy.Abstractions.IXrmBaseContext)">
+            <summary>
+            Returns a plugin context with default properties one can override
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.GetPluginContextProperties(FakeXrmEasy.Abstractions.IXrmBaseContext)">
+            <summary>
+            Returns the default plugin context properties of this IXrmBaseContext
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWith(FakeXrmEasy.Abstractions.IXrmBaseContext,FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext,Microsoft.Xrm.Sdk.IPlugin)">
+            <summary>
+            Executes a plugin passing a custom context. This is useful whenever we need to mock more complex plugin contexts (ex: passing MessageName, plugin Depth, InitiatingUserId etc...)
+            </summary>
+            <param name="context">The IXrmBaseContext instance where this plugin will be executed</param>
+            <param name="plugCtx">A plugin context with the minimum set of properties needed for the plugin execution</param>
+            <param name="instance">A specific plugin instance, where you might have already setup / injected other dependencies</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWith``1(FakeXrmEasy.Abstractions.IXrmBaseContext,FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext)">
+            <summary>
+            Executes a plugin passing a custom context. This is useful whenever we need to mock more complex plugin contexts (ex: passing MessageName, plugin Depth, InitiatingUserId etc...)
+            </summary>
+            <typeparam name="T">Must be a plugin</typeparam>
+            <param name="context">The IXrmBaseContext instance where this plugin will be executed</param>
+            <param name="ctx">A plugin context with the minimum set of properties needed for the plugin execution</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWith``1(FakeXrmEasy.Abstractions.IXrmBaseContext,Microsoft.Xrm.Sdk.ParameterCollection,Microsoft.Xrm.Sdk.ParameterCollection,Microsoft.Xrm.Sdk.EntityImageCollection,Microsoft.Xrm.Sdk.EntityImageCollection)">
+            <summary>
+            Method to execute a plugin that takes several plugin execution properties as parameters. Soon to be deprecated, use the ExecutePluginWith&lt;T&gt; that takes a plugin context instance instead
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="inputParameters"></param>
+            <param name="outputParameters"></param>
+            <param name="preEntityImages"></param>
+            <param name="postEntityImages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithConfigurations``1(FakeXrmEasy.Abstractions.IXrmBaseContext,FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext,System.String,System.String)">
+            <summary>
+            Executes a plugin with the unsecure and secure configurations specified
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="plugCtx"></param>
+            <param name="unsecureConfiguration"></param>
+            <param name="secureConfiguration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithConfigurations``1(FakeXrmEasy.Abstractions.IXrmBaseContext,FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext,``0,System.String,System.String)">
+            <summary>
+            Method to execute a plugin with configurations that also takes a specific plugin instance where you might already injected other external dependencies
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="plugCtx"></param>
+            <param name="instance"></param>
+            <param name="unsecureConfiguration"></param>
+            <param name="secureConfiguration"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTarget``1(FakeXrmEasy.Abstractions.IXrmBaseContext,FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext,Microsoft.Xrm.Sdk.Entity,System.String,System.Int32)">
+            <summary>
+            Executes a plugin with a given target
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="ctx"></param>
+            <param name="target"></param>
+            <param name="messageName"></param>
+            <param name="stage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTarget``1(FakeXrmEasy.Abstractions.IXrmBaseContext,Microsoft.Xrm.Sdk.Entity,System.String,System.Int32)">
+            <summary>
+            Executes the plugin of type T against the faked context for an entity target
+            and returns the faked plugin
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="target">The entity to execute the plug-in for.</param>
+            <param name="messageName">Sets the message name.</param>
+            <param name="stage">Sets the stage.</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTarget(FakeXrmEasy.Abstractions.IXrmBaseContext,Microsoft.Xrm.Sdk.IPlugin,Microsoft.Xrm.Sdk.Entity,System.String,System.Int32)">
+            <summary>
+            Executes the plugin of type T against the faked context for an entity target
+            and returns the faked plugin
+            </summary>
+            <param name="context"></param>
+            <param name="instance"></param>
+            <param name="target">The entity to execute the plug-in for.</param>
+            <param name="messageName">Sets the message name.</param>
+            <param name="stage">Sets the stage.</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTargetReference``1(FakeXrmEasy.Abstractions.IXrmBaseContext,Microsoft.Xrm.Sdk.EntityReference,System.String,System.Int32)">
+            <summary>
+            Executes the plugin of type T against the faked context for an entity reference target
+            and returns the faked plugin
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="target">The entity reference to execute the plug-in for.</param>
+            <param name="messageName">Sets the message name.</param>
+            <param name="stage">Sets the stage.</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTargetReference(FakeXrmEasy.Abstractions.IXrmBaseContext,Microsoft.Xrm.Sdk.IPlugin,Microsoft.Xrm.Sdk.EntityReference,System.String,System.Int32)">
+            <summary>
+            Executes the plugin of type T against the faked context for an entity reference target
+            and returns the faked plugin
+            </summary>
+            <param name="context">The IXrmBaseContext used to execute the plugin</param>
+            <param name="instance">A specific plugin instance</param>
+            <param name="target">The entity reference to execute the plug-in for.</param>
+            <param name="messageName">Sets the message name.</param>
+            <param name="stage">Sets the stage.</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTargetAndPreEntityImages``1(FakeXrmEasy.Abstractions.IXrmBaseContext,System.Object,Microsoft.Xrm.Sdk.EntityImageCollection,System.String,System.Int32)">
+            <summary>
+            Returns a faked plugin with a target and the specified pre entity images
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTargetAndPostEntityImages``1(FakeXrmEasy.Abstractions.IXrmBaseContext,System.Object,Microsoft.Xrm.Sdk.EntityImageCollection,System.String,System.Int32)">
+            <summary>
+            Returns a faked plugin with a target and the specified post entity images
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="target"></param>
+            <param name="postEntityImages"></param>
+            <param name="messageName"></param>
+            <param name="stage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.IXrmBaseContextPluginExtensions.ExecutePluginWithTargetAndInputParameters``1(FakeXrmEasy.Abstractions.IXrmBaseContext,Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.ParameterCollection,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="context"></param>
+            <param name="target"></param>
+            <param name="inputParameters"></param>
+            <param name="messageName"></param>
+            <param name="stage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3">
+            <summary>
+            Default custom api executor that associates an early bound custom api request and response with a plugin type that will implement it
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="Q"></typeparam>
+            <typeparam name="R"></typeparam>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.PluginType">
+            <summary>
+            Returns the plugin instance that will execute this custom api
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.MessageName">
+            <summary>
+            The name of the request that will trigger this custom api
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.CustomProcessingType">
+            <summary>
+            Custom Processing Type of this CustomApiFakeMessageExecutor
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.BindingType">
+            <summary>
+            Binding type for this CustomApiFakeMessageExecutor
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.EntityLogicalName">
+            <summary>
+            If BindingType is Entity, this is the name of the Entity to bind this custom api to 
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.GetResponsibleRequestType">
+            <summary>
+            Returns the organization request type associated with this custom api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the custom api executor can execute the specified request
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`3.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Executes the custom api
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1">
+            <summary>
+            Default custom api executor that associates a late bound organization request with a plugin type that will implement it
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1._pluginType">
+            <summary>
+            The plugin assembly to execute by this message
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.PluginType">
+            <summary>
+            Returns the plugin instance that will execute this custom api
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.MessageName">
+            <summary>
+            The name of the request that will trigger this custom api
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.CustomProcessingType">
+            <summary>
+            Custom Processing Type of this CustomApiFakeMessageExecutor
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.BindingType">
+            <summary>
+            Binding type for this CustomApiFakeMessageExecutor
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.EntityLogicalName">
+            <summary>
+            If BindingType is Entity, this is the name of the Entity to bind this custom api to 
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.GetResponsibleRequestType">
+            <summary>
+            Returns the organization request type associated with this custom api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.CanExecute(Microsoft.Xrm.Sdk.OrganizationRequest)">
+            <summary>
+            Returns true if the custom api executor can execute the specified request
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.CustomApiFakeMessageExecutor`1.Execute(Microsoft.Xrm.Sdk.OrganizationRequest,FakeXrmEasy.Abstractions.IXrmFakedContext)">
+            <summary>
+            Executes the custom api
+            </summary>
+            <param name="request"></param>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Middleware.CustomApis.MiddlewareBuilderCustomApisExtensions">
+            <summary>
+            Extension methods to configure custom api executions in middleware
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.CustomApis.MiddlewareBuilderCustomApisExtensions.AddCustomApiFakeMessageExecutors(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,System.Reflection.Assembly)">
+            <summary>
+            Adds all custom api fake message executors that exist in the selected assembly
+            </summary>
+            <param name="builder"></param>
+            <param name="assembly"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Middleware.Pipeline.Exceptions.CustomDiscoveryFunctionMissingException">
+            <summary>
+            Exception raised when automatic registration of plugin steps is enabled but the discovery function is not defined
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.Pipeline.Exceptions.CustomDiscoveryFunctionMissingException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Middleware.Pipeline.Exceptions.MissingPluginTypeInPluginStepDefinitionException">
+            <summary>
+            Exception thrown when a plugin step definition used in a CustomRegistrationFunc is null
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Middleware.Pipeline.Exceptions.MissingPluginTypeInPluginStepDefinitionException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.Pipeline.PipelineTypes.MissingPipelineTypesException">
+            <summary>
+            Exception thrown when using early bound types and not all the necessary pipeline types have been generated
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.Pipeline.PipelineTypes.MissingPipelineTypesException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition">
+            <summary>
+            Contains necessary info about a plugin image used in Pipeline Simulation
+            
+            
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition.Name">
+            <summary>
+            Name of the plugin image definition
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition.ImageType">
+            <summary>
+            Type of Image: PreImage, PostImage, or Both
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition.Attributes">
+            <summary>
+            Attributes that this plugin image contains
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition.#ctor(System.String,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepImageType,System.String[])">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="name"></param>
+            <param name="imageType"></param>
+            <param name="attributes"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginImages.PostImage">
+            <summary>
+            Defines a PostImage is available for specific requests and stages
+            
+            ---- Message------Stage--------Pre-Image-----Post-Image------
+                 Create       PRE             No             No
+                 Update       PRE             Yes            No
+                 Delete       PRE             Yes            No
+                 Upsert       PRE             ??             ??
+                 Create       POST            No             Yes
+                 Update       POST            Yes            Yes
+                 Delete       POST            Yes            No
+                 Upsert       POST            ??             ??
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginImages.PostImage.IsAvailableFor(System.Type,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepStage)">
+            <summary>
+            Determines if a PostImage is available for the given request and plugin stage
+            </summary>
+            <param name="organizationRequestType">The request to check the availability for</param>
+            <param name="stage">The plugin stage to check such availability</param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginImages.PreImage">
+            <summary>
+            Defines if PreImage is available for specific requests and stages
+            
+            ---- Message------Stage--------Pre-Image-----Post-Image------
+                 Create       PRE             No             No
+                 Update       PRE             Yes            No
+                 Delete       PRE             Yes            No
+                 Upsert       PRE             ??             ??
+                 Create       POST            No             Yes
+                 Update       POST            Yes            Yes
+                 Delete       POST            Yes            No
+                 Upsert       POST            ??             ??
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginImages.PreImage.IsAvailableFor(System.Type,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepStage)">
+            <summary>
+            Determines if a PreImage is available for the given request and plugin stage
+            </summary>
+            <param name="organizationRequestType">The request to check the availability for</param>
+            <param name="stage">The plugin stage to check such availability</param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginInstances.IPluginInstancesRepository">
+            <summary>
+            Contains a repository of plugin instances to execute per sdkmessageprocessingstep.
+            Pipeline simulation will use any of these instances over any other default parameterless constructor or constructor with configurations
+            This repository allows advanced scenarios of using user-defined plugin instances with custom constructors (for DI purposes)
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginInstances.IPluginInstancesRepository.GetPluginInstance(System.Guid)">
+            <summary>
+            Returns a plugin instance for the associated SdkMessageProcessingStep, if any was previously set
+            </summary>
+            <param name="sdkMessageProcessingStepId">The Id of the SdkMessageProcessingStep</param>
+            <returns>The plugin instance or null otherwise</returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginInstances.IPluginInstancesRepository.SetPluginInstance(System.Guid,Microsoft.Xrm.Sdk.IPlugin)">
+            <summary>
+            Stores a new plugin instance for the associated SdkMessageProcessingStep
+            </summary>
+            <param name="sdkMessageProcessingStepId">The Id of the SdkMessageProcessingStep</param>
+            <param name="pluginInstance">The plugin instance to store and that will be used in pipeline simulation</param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginInstances.PluginInstancesRepository">
+            <summary>
+            The implementation of IPluginInstancesRepository
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.Extensions.StringExtensions">
+            <summary>
+            Some string extension methods
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.Extensions.StringExtensions.ToOrganizationCrudRequestType(System.String)">
+            <summary>
+            Returns an organization request type from a message name
+            </summary>
+            <param name="messageName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.EntityTypeCodeNotFoundException">
+            <summary>
+            Exception thrown when using a plugin registration method that requires the entity type code to be present
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.EntityTypeCodeNotFoundException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="entityLogicalName"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.InvalidPrimaryEntityNameException">
+            <summary>
+            Exception raised when an attemp to register a plugin step was made with an invalid primary entity name
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.InvalidPrimaryEntityNameException.#ctor(System.String)">
+            <summary>
+            Default constructor that requires the invalid primary entity name
+            </summary>
+            <param name="entityLogicalName"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.InvalidPluginStepRegistrationException">
+            <summary>
+            Exception raised when an attemp to register a plugin step was made with an invalid combination of message, entity name, stage and mode
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.InvalidPluginStepRegistrationException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.InvalidRegistrationMethodForLateBoundException">
+            <summary>
+            Exception thrown when a plugin step registration method for early bound entities was used to register late bound entities
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.InvalidRegistrationMethodForLateBoundException.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.PluginStepDefinitionAlreadyRegisteredException">
+            <summary>
+            Exception that is thrown when a plugin step with the same id is registered twice
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.PluginStepDefinitionAlreadyRegisteredException.#ctor(System.Guid)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="pluginStepId"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.PostImageNotAvailableException">
+            <summary>
+            Exception thrown when an invalid post image was attempted to be registered
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.PostImageNotAvailableException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.PreImageNotAvailableException">
+            <summary>
+            Exception thrown when an invalid preimage was attempted to be registered
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.PreImageNotAvailableException.#ctor(System.String)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.RegisterEntityTypeCodePluginStepWithoutProxyTypesAssemblyException">
+            <summary>
+            Exception raised when EntityTypeCode is used to register a plugin step but no proxy types assemblies were enabled
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.RegisterEntityTypeCodePluginStepWithoutProxyTypesAssemblyException.#ctor(System.Int32)">
+            <summary>
+            Default constructor with the offending EntityTypeCode
+            </summary>
+            <param name="entityTypeCode"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.RegisterInvalidEntityTypeCodePluginStepException">
+            <summary>
+            Exception raised when an EntityTypeCode was used to register a plugin step but the associated early-bound type was not found
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.RegisterInvalidEntityTypeCodePluginStepException.#ctor(System.Int32)">
+            <summary>
+            Default constructor with the offending EntityTypeCode
+            </summary>
+            <param name="entityTypeCode"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.RegisterStepWithEntityTypeCodeAndEntityLogicalNameException">
+            <summary>
+            Exception raised when both an EntityTypeCode and EntityLogicalName were used to register a plugin step
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.InvalidRegistrationExceptions.RegisterStepWithEntityTypeCodeAndEntityLogicalNameException.#ctor(System.Int32,System.String)">
+            <summary>
+            Default constructor with the offending EntityTypeCode and EntityLogicalName
+            </summary>
+            <param name="entityTypeCode"></param>
+            <param name="logicalName"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.PluginStepConfigurations">
+            <summary>
+            Stores information about a plugin step's secure and unsecure configurations
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepConfigurations.SecureConfig">
+            <summary>
+            Secure configuration of the plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepConfigurations.UnsecureConfig">
+            <summary>
+            Unsecure configuration of the plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepConfigurations.SecureConfigId">
+            <summary>
+            Optional. The identifier of the secure configuration
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.PluginStepConfigurations.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition">
+            <summary>
+            Contains the properties of a plugin step that are needed to execute it
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.Id">
+            <summary>
+            Primary key of the stored sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.Stage">
+            <summary>
+            Stage where this plugins runs. If null, PostOperation will be used by default
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.MessageName">
+            <summary>
+            Name of the OrganizationRequest that triggers this plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.Mode">
+            <summary>
+            Mode of this plugin step. If null, Synchronous will be used by default
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.EntityLogicalName">
+            <summary>
+            Entity Logical Name, the plugin will only execute for these entities. This property will take precedence over EntityTypeCode
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.EntityTypeCode">
+            <summary>
+            If present, the plugin will only execute for entities whose EntityTypeCode matches this value, or any entity otherwise
+            EntityTypeCode will be ignored if EntityLogicalName is set
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.Rank">
+            <summary>
+            The order in which this plugin will run relative to other plugin steps of the same stage and mode
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.FilteringAttributes">
+            <summary>
+            The attributes used to filter the execution of this plugin. The plugin will only execute if any of the attributes are present in the request,
+            or will run regardless of any attributes if empty
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.AssemblyName">
+            <summary>
+            The name of the assembly that will be used to search for the plugin type
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.PluginType">
+            <summary>
+            Type of the plugin to be executed (the plugin class name)
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.ImagesDefinitions">
+            <summary>
+            Any plugin images to be registered for this plugin step, or null or empty
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.Configurations">
+            <summary>
+            Stores information about the secure and unsecure configurations of this plugin step
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.PluginInstance">
+            <summary>
+            Optional. Specific plugin instance that will executed instead of the plugin parameterless constructor or configurations constructor
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageFieldNames.Name">
+            <summary>
+            Property where the Name of the message will be stored
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageFilterFieldNames.EntityLogicalName">
+            <summary>
+            This property is a hack to support storing the logical name instead of the primary object type, it doesn't exist as an actual field in Dataverse
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageFilterFieldNames.PrimaryObjectTypeCode">
+            <summary>
+            Primary object type of the associated entity
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.EventHandler">
+            <summary>
+            Reference to the plugin assembly (PluginType)
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.SdkMessageId">
+            <summary>
+            Associated message (Create, Update, etc)
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.SdkMessageFilterId">
+            <summary>
+            Associated filtering entity, if any
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.FilteringAttributes">
+            <summary>
+            Filtering attributes 
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.Mode">
+            <summary>
+            Execution mode: sync or async
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.Stage">
+            <summary>
+            Stage of the plugin execution: PreValidation, PreOperation, PostOperation
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.Rank">
+            <summary>
+            Rank: sequence of execution
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.Configuration">
+            <summary>
+            Configuration: the unsecure configuration of this plugin step
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepFieldNames.SdkMessageProcessingStepSecureConfigId">
+            <summary>
+            SecureConfigId: id of the associated pluginstepsecureconfig id
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepSecureConfigFieldNames.SecureConfig">
+            <summary>
+            SecureConfig: string that stores the secure configuration
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepImageFieldNames.Name">
+            <summary>
+            Nam eof the image
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.PluginSteps.PluginStepRegistrationFieldNames.SdkMessageProcessingStepImageFieldNames.SdkMessageProcessingStepId">
+            <summary>
+            Associated plugin step
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.IPluginStepValidator">
+            <summary>
+            The plugin step validator is in charge of validating if a given plugin step definition is valid (that it can be registered in plugin registration tool)
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.IPluginStepValidator.IsValid(FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition)">
+            <summary>
+            Returns true if the given combination is valid
+            </summary>
+            <param name="stepDefinition">The plugin step definition to validate</param>
+            <returns>True if the combination can be registered, false otherwise</returns>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.PluginSteps.PluginStepValidator">
+            <summary>
+            Default implementation of IPluginStepValidator
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.PluginSteps.PluginStepValidator.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties">
+            <summary>
+            Implementation to override default plugin context properties
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties._context">
+            <summary>
+            Reference to the IXrmBaseContext that created this instance
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties._service">
+            <summary>
+            A fake organization service
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties._tracingService">
+            <summary>
+            A fake tracing service
+            </summary>
+        </member>
+        <member name="F:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties._loggerService">
+            <summary>
+            Plugin telemetry logger service
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties.#ctor(FakeXrmEasy.Abstractions.IXrmBaseContext,Microsoft.Xrm.Sdk.IOrganizationService,FakeXrmEasy.Abstractions.IXrmFakedTracingService)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="context">The IXrmBaseContext from which this instance is created</param>
+            <param name="service">The fake organization service to use by this plugin context properties instance</param>
+            <param name="tracingService">The fake tracing service to use by this plugin context properties instance</param>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties.EntityDataSourceRetriever">
+            <summary>
+            Provides a default EntityDataSourceRetriever
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties.Logger">
+            <summary>
+            Provides a custom implementation for an ILogger interface or returns the current implementation
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties.GetServiceProvider(Microsoft.Xrm.Sdk.IPluginExecutionContext)">
+            <summary>
+            Gets a fake service provider interface based on the current fake plugin execution context
+            </summary>
+            <param name="plugCtx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties.GetFakedPluginContext(FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext)">
+            <summary>
+            Returns a fake plugin execution context from a default plugin context in code
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties.GetFakedExecutionContext(FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext)">
+            <summary>
+            Returns a fake execution context
+            </summary>
+            <param name="ctx"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.XrmFakedPluginContextProperties.PopulateExecutionContextPropertiesFromFakedContext(Microsoft.Xrm.Sdk.IExecutionContext,FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext)">
+            <summary>
+            Populates plugin context properties from a given fake plugin context
+            </summary>
+            <param name="context"></param>
+            <param name="ctx"></param>
+        </member>
+        <member name="T:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext">
+            <summary>
+            Holds custom properties of a IPluginExecutionContext
+            Extracted from https://msdn.microsoft.com/es-es/library/microsoft.xrm.sdk.ipluginexecutioncontext_properties.aspx
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.BusinessUnitId">
+            <summary>
+            Gets the GUID of the business unit that the user making the request, also known as the calling user, belongs to.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.CorrelationId">
+            <summary>
+            Gets the GUID for tracking plug-in or custom workflow activity execution.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.Depth">
+            <summary>
+            Gets the current depth of execution in the call stack.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.InitiatingUserId">
+            <summary>
+            Gets the GUID of the system user account under which the current pipeline is executing.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.InputParameters">
+            <summary>
+            Gets the parameters of the request message that triggered the event that caused the plug-in to execute.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.IsExecutingOffline">
+            <summary>
+            Gets whether the plug-in is executing from the Microsoft Dynamics 365 for Microsoft Office Outlook with Offline Access client while it is offline.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.IsInTransaction">
+            <summary>
+            Gets a value indicating if the plug-in is executing within the database transaction.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.IsOfflinePlayback">
+            <summary>
+            Gets a value indicating if the plug-in is executing as a result of the Microsoft Dynamics 365 for Microsoft Office Outlook with Offline Access client transitioning from offline to online and synchronizing with the Microsoft Dynamics 365 server.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.IsolationMode">
+            <summary>
+            Gets a value indicating if the plug-in is executing in the sandbox.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.MessageName">
+            <summary>
+            Gets the name of the Web service message that is being processed by the event execution pipeline.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.Mode">
+            <summary>
+            Gets the mode of plug-in execution.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.OperationCreatedOn">
+            <summary>
+            Gets the date and time that the related System Job was created.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.OperationId">
+            <summary>
+            Gets the GUID of the related System Job.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.OrganizationId">
+            <summary>
+            Gets the GUID of the organization that the entity belongs to and the plug-in executes under.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.OrganizationName">
+            <summary>
+            Gets the unique name of the organization that the entity currently being processed belongs to and the plug-in executes under.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.OutputParameters">
+            <summary>
+            Gets the parameters of the response message after the core platform operation has completed.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.OwningExtension">
+            <summary>
+            Gets a reference to the related SdkMessageProcessingingStep or ServiceEndpoint
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.PostEntityImages">
+            <summary>
+            Gets the properties of the primary entity after the core platform operation has been completed.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.PreEntityImages">
+            <summary>
+            Gets the properties of the primary entity before the core platform operation has begins.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.PrimaryEntityId">
+            <summary>
+            Gets the GUID of the primary entity for which the pipeline is processing events.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.PrimaryEntityName">
+            <summary>
+            Gets the name of the primary entity for which the pipeline is processing events.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.RequestId">
+            <summary>
+            Gets the GUID of the request being processed by the event execution pipeline.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.SecondaryEntityName">
+            <summary>
+            Gets the name of the secondary entity that has a relationship with the primary entity.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.SharedVariables">
+            <summary>
+            Gets the custom properties that are shared between plug-ins.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.UserId">
+            <summary>
+            Gets the GUID of the system user for whom the plug-in invokes web service methods on behalf of.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.ParentContext">
+            <summary>
+            Gets the execution context from the parent pipeline operation.
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.Stage">
+            <summary>
+            Gets the stage in the execution pipeline that a synchronous plug-in is registered for.
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Plugins.XrmFakedPluginExecutionContext.FromSerialisedAndCompressedProfile(System.String)">
+            <summary>
+            Generates a fake plugin execution context from a previously, compressed, plugin execution, which can then be replayed
+            </summary>
+            <param name="sSerialisedCompressedProfile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Pipeline.IXrmFakedContextPipelineExtensions">
+            <summary>
+            Extension methods to register plugin steps
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Pipeline.IXrmFakedContextPipelineExtensions.RegisterPluginStep``1(FakeXrmEasy.Abstractions.IXrmFakedContext,FakeXrmEasy.Plugins.Definitions.IPluginStepDefinition)">
+            <summary>
+            Registers a new plugin againts the specified plugin with the plugin step definition details provided
+            When using this method the plugin class specified in the method signature will be used instead of the assembly and plugin
+            types provided in the plugin step definition parameter.
+            
+            All the other remaining settings in the plugin definition parameter will be used for registration.
+            </summary>
+            <param name="context"></param>
+            <param name="pluginStepDefinition">Info about the details of the plugin registration</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Pipeline.IXrmFakedContextPipelineExtensions.RegisterPluginStep``1(FakeXrmEasy.Abstractions.IXrmFakedContext,System.String,System.String,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepStage,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepMode,System.Int32,System.String[],System.Collections.Generic.IEnumerable{FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition})">
+            <summary>
+            Registers a plugin step using an entity logical name, ideal for late bound entities
+            </summary>
+            <typeparam name="TPlugin">The plugin assembly to register</typeparam>
+            <param name="context">The IXrmFakedContext where the registration will be stored </param>
+            <param name="entityLogicalName">The logical name of the entity</param>
+            <param name="message">The message that will trigger the plugin (i.e. request name)</param>
+            <param name="stage">The stage in which the plugin will trigger</param>
+            <param name="mode">The execution mode (async or sync)</param>
+            <param name="rank">If multiple plugins are registered for the same message, rank defines the order in which they'll be executed</param>
+            <param name="filteringAttributes">Any filtering attributes (optional)</param>
+            <param name="registeredImages">Any pre or post images (optional)</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Pipeline.IXrmFakedContextPipelineExtensions.RegisterPluginStep``2(FakeXrmEasy.Abstractions.IXrmFakedContext,System.String,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepStage,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepMode,System.Int32,System.String[],System.Collections.Generic.IEnumerable{FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition})">
+            <summary>
+            Registers the <typeparamref name="TPlugin"/> as a SDK Message Processing Step for the Entity <typeparamref name="TEntity"/>.
+            </summary>
+            <typeparam name="TPlugin">The plugin to register the step for.</typeparam>
+            <typeparam name="TEntity">The entity to filter this step for.</typeparam>
+            <param name="context">The faked context to register this plugin against</param>
+            <param name="message">The message that should trigger the execution of plugin.</param>
+            <param name="stage">The stage when the plugin should be executed.</param>
+            <param name="mode">The mode in which the plugin should be executed.</param>
+            <param name="rank">The order in which this plugin should be executed in comparison to other plugins registered with the same <paramref name="message"/> and <paramref name="stage"/>.</param>
+            <param name="filteringAttributes">When not one of these attributes is present in the execution context, the execution of the plugin is prevented.</param>
+            <param name="registeredImages">Optional, the any images to register against this plugin step</param>
+        </member>
+        <member name="M:FakeXrmEasy.Pipeline.IXrmFakedContextPipelineExtensions.RegisterPluginStep``1(FakeXrmEasy.Abstractions.IXrmFakedContext,System.String,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepStage,FakeXrmEasy.Abstractions.Plugins.Enums.ProcessingStepMode,System.Int32,System.String[],System.Nullable{System.Int32},System.Collections.Generic.IEnumerable{FakeXrmEasy.Plugins.PluginImages.PluginImageDefinition})">
+            <summary>
+            Registers the <typeparamref name="TPlugin"/> as a SDK Message Processing Step.
+            </summary>
+            <typeparam name="TPlugin">The plugin to register the step for.</typeparam>
+            <param name="context">The faked context to register this plugin against</param>
+            <param name="message">The message that should trigger the execution of plugin.</param>
+            <param name="stage">The stage when the plugin should be executed.</param>
+            <param name="mode">The mode in which the plugin should be executed.</param>
+            <param name="rank">The order in which this plugin should be executed in comparison to other plugins registered with the same <paramref name="message"/> and <paramref name="stage"/>.</param>
+            <param name="filteringAttributes">When not one of these attributes is present in the execution context, the execution of the plugin is prevented.</param>
+            <param name="primaryEntityTypeCode">The entity type code to filter this step for.</param>
+            <param name="registeredImages">Optional, the any images to register against this plugin step</param>
+        </member>
+        <member name="M:FakeXrmEasy.Pipeline.IXrmFakedContextPipelineExtensions.ExecutePipelinePlugins(FakeXrmEasy.Abstractions.IXrmFakedContext,System.Collections.Generic.IEnumerable{FakeXrmEasy.Plugins.PluginSteps.PluginStepDefinition},Microsoft.Xrm.Sdk.OrganizationRequest,Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.Entity,Microsoft.Xrm.Sdk.OrganizationResponse)">
+            <summary>
+            Executes all the relevant plugin steps for the current request
+            </summary>
+            <param name="context"></param>
+            <param name="pluginSteps"></param>
+            <param name="organizationRequest"></param>
+            <param name="previousValues"></param>
+            <param name="resultingAttributes"></param>
+            <param name="organizationResponse">The organization response that triggered this plugin execution</param>
+        </member>
+        <member name="P:FakeXrmEasy.Pipeline.PipelineStageExecutionParameters.Request">
+            <summary>
+            Original request that triggered this pipeline execution stage
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Pipeline.PipelineStageExecutionParameters.Response">
+            <summary>
+            Original response of the request that triggered this pipeline execution stage
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Pipeline.PipelineStageExecutionParameters.PreEntitySnapshot">
+            <summary>
+            Snapshot of the entity values before the execution of the request
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Pipeline.PipelineStageExecutionParameters.PostEntitySnapshot">
+            <summary>
+            Snapshot of the entity values after the execution of the request
+            </summary>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Pipeline.MiddlewareBuilderPipelineExtensions">
+            <summary>
+            Provides extensions for plugin pipeline simulation
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Pipeline.MiddlewareBuilderPipelineExtensions.AddPipelineSimulation(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder)">
+            <summary>
+            Enables Pipeline Simulation in middleware with default options
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Pipeline.MiddlewareBuilderPipelineExtensions.AddPipelineSimulation(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder,FakeXrmEasy.Middleware.Pipeline.PipelineOptions)">
+            <summary>
+            Enables Piepeline Simulation in middleware with custom options
+            </summary>
+            <param name="builder"></param>
+            <param name="options">The custom options</param>
+            <returns></returns>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Pipeline.MiddlewareBuilderPipelineExtensions.UsePipelineSimulation(FakeXrmEasy.Abstractions.Middleware.IMiddlewareBuilder)">
+            <summary>
+            Inserts pipeline simulation into the middleware. When using pipeline simulation, this method should be called before all the other Use*() methods
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:FakeXrmEasy.Middleware.Pipeline.PipelineOptions">
+            <summary>
+            Configures Pipeline Simulation Options
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Middleware.Pipeline.PipelineOptions.UsePipelineSimulation">
+            <summary>
+            Enables Pipeline Simulation in middleware
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Middleware.Pipeline.PipelineOptions.UsePluginStepAudit">
+            <summary>
+            Enables auditing of plugin steps that were executed in the pipeline
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Middleware.Pipeline.PipelineOptions.UsePluginStepRegistrationValidation">
+            <summary>
+            Enables validation of the registration of unsupported plugin steps
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Middleware.Pipeline.PipelineOptions.UseAutomaticPluginStepRegistration">
+            <summary>
+            Enables automatic discovery and registration of plugin steps
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Middleware.Pipeline.PipelineOptions.PluginAssemblies">
+            <summary>
+            When UseAutomaticPluginStepRegistration is enabled: the assemblies where to look for plugin steps
+            </summary>
+        </member>
+        <member name="P:FakeXrmEasy.Middleware.Pipeline.PipelineOptions.CustomPluginStepDiscoveryFunction">
+            <summary>
+            When UseAutomaticPluginStepRegistration is enabled: Custom function that will be invoked for each assembly 
+            in PluginAssemblies to find any plugin step definitions via a custom discovery function 
+            (i.e. one that reads from an externally generated CrmPluginRegistrationAttribute class...)
+            </summary>
+        </member>
+        <member name="M:FakeXrmEasy.Middleware.Pipeline.PipelineOptions.#ctor">
+            <summary>
+            Default constructor with Pipeline Simulation enabled by default
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.PluginType">
+            <summary>
+            Type that inherits from the IPlugin interface and is contained within a plug-in assembly.
+            </summary>
+        </member>
+        <member name="M:DataverseEntities.PluginType.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.AssemblyName">
+            <summary>
+            Full path name of the plug-in assembly.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.CreatedBy">
+            <summary>
+            Unique identifier of the user who created the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.CreatedOn">
+            <summary>
+            Date and time when the plug-in type was created.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.CreatedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who created the plugintype.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.Culture">
+            <summary>
+            Culture code for the plug-in assembly.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.CustomizationLevel">
+            <summary>
+            Customization level of the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.CustomWorkflowActivityInfo">
+            <summary>
+            Serialized Custom Activity Type information, including required arguments. For more information, see SandboxCustomActivityInfo.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.Description">
+            <summary>
+            Description of the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.FriendlyName">
+            <summary>
+            User friendly name for the plug-in.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.IsWorkflowActivity">
+            <summary>
+            Indicates if the plug-in is a custom activity for workflows.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.Major">
+            <summary>
+            Major of the version number of the assembly for the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.Minor">
+            <summary>
+            Minor of the version number of the assembly for the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.ModifiedBy">
+            <summary>
+            Unique identifier of the user who last modified the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.ModifiedOn">
+            <summary>
+            Date and time when the plug-in type was last modified.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.ModifiedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who last modified the plugintype.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.Name">
+            <summary>
+            Name of the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.OrganizationId">
+            <summary>
+            Unique identifier of the organization with which the plug-in type is associated.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.OverwriteTime">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.PluginAssemblyId">
+            <summary>
+            Unique identifier of the plug-in assembly that contains this plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.PluginTypeId">
+            <summary>
+            Unique identifier of the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.PluginTypeIdUnique">
+            <summary>
+            Unique identifier of the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.PublicKeyToken">
+            <summary>
+            Public key token of the assembly for the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.SolutionId">
+            <summary>
+            Unique identifier of the associated solution.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.TypeName">
+            <summary>
+            Fully qualified type name of the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.Version">
+            <summary>
+            Version number of the assembly for the plug-in type.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.WorkflowActivityGroupName">
+            <summary>
+            Group name of workflow custom activity.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.plugintype_sdkmessageprocessingstep">
+            <summary>
+            1:N plugintype_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.PluginType.plugintypeid_sdkmessageprocessingstep">
+            <summary>
+            1:N plugintypeid_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.SdkMessage">
+            <summary>
+            Message that is supported by the SDK.
+            </summary>
+        </member>
+        <member name="M:DataverseEntities.SdkMessage.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.AutoTransact">
+            <summary>
+            Information about whether the SDK message is automatically transacted.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.Availability">
+            <summary>
+            Identifies where a method will be exposed. 0 - Server, 1 - Client, 2 - both.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.CategoryName">
+            <summary>
+            If this is a categorized method, this is the name, otherwise None.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.CreatedBy">
+            <summary>
+            Unique identifier of the user who created the SDK message.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.CreatedOn">
+            <summary>
+            Date and time when the SDK message was created.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.CreatedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who created the sdkmessage.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.CustomizationLevel">
+            <summary>
+            Customization level of the SDK message.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.ExecutePrivilegeName">
+            <summary>
+            Name of the privilege that allows execution of the SDK message
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.Expand">
+            <summary>
+            Indicates whether the SDK message should have its requests expanded per primary entity defined in its filters.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.IntroducedVersion">
+            <summary>
+            Version in which the component is introduced.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.IsActive">
+            <summary>
+            Information about whether the SDK message is active.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.IsManaged">
+            <summary>
+            Information that specifies whether this component is managed.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.IsPrivate">
+            <summary>
+            Indicates whether the SDK message is private.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.IsReadOnly">
+            <summary>
+            Identifies whether an SDK message will be ReadOnly or Read Write. false - ReadWrite, true - ReadOnly .
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.IsValidForExecuteAsync">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.ModifiedBy">
+            <summary>
+            Unique identifier of the user who last modified the SDK message.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.ModifiedOn">
+            <summary>
+            Date and time when the SDK message was last modified.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.ModifiedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who last modified the sdkmessage.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.Name">
+            <summary>
+            Name of the SDK message.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.OrganizationId">
+            <summary>
+            Unique identifier of the organization with which the SDK message is associated.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.OverwriteTime">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.SdkMessageId">
+            <summary>
+            Unique identifier of the SDK message entity.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.SdkMessageIdUnique">
+            <summary>
+            Unique identifier of the SDK message.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.SolutionId">
+            <summary>
+            Unique identifier of the associated solution.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.Template">
+            <summary>
+            Indicates whether the SDK message is a template.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.ThrottleSettings">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.VersionNumber">
+            <summary>
+            Number that identifies a specific revision of the SDK message. 
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.WorkflowSdkStepEnabled">
+            <summary>
+            Whether or not the SDK message can be called from a workflow.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.sdkmessageid_sdkmessagefilter">
+            <summary>
+            1:N sdkmessageid_sdkmessagefilter
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessage.sdkmessageid_sdkmessageprocessingstep">
+            <summary>
+            1:N sdkmessageid_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.SdkMessageFilter">
+            <summary>
+            Filter that defines which SDK messages are valid for each type of entity.
+            </summary>
+        </member>
+        <member name="M:DataverseEntities.SdkMessageFilter.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.Availability">
+            <summary>
+            Identifies where a method will be exposed. 0 - Server, 1 - Client, 2 - both.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.CreatedBy">
+            <summary>
+            Unique identifier of the user who created the SDK message filter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.CreatedOn">
+            <summary>
+            Date and time when the SDK message filter was created.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.CreatedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who created the sdkmessagefilter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.CustomizationLevel">
+            <summary>
+            Customization level of the SDK message filter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.IntroducedVersion">
+            <summary>
+            Version in which the component is introduced.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.IsCustomProcessingStepAllowed">
+            <summary>
+            Indicates whether a custom SDK message processing step is allowed.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.IsManaged">
+            <summary>
+            Information that specifies whether this component is managed.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.IsVisible">
+            <summary>
+            Indicates whether the filter should be visible.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.ModifiedBy">
+            <summary>
+            Unique identifier of the user who last modified the SDK message filter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.ModifiedOn">
+            <summary>
+            Date and time when the SDK message filter was last modified.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.ModifiedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who last modified the sdkmessagefilter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.Name">
+            <summary>
+            Name of the SDK message filter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.OrganizationId">
+            <summary>
+            Unique identifier of the organization with which the SDK message filter is associated.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.OverwriteTime">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.PrimaryObjectTypeCode">
+            <summary>
+            Type of entity with which the SDK message filter is primarily associated.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.RestrictionLevel">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.SdkMessageFilterId">
+            <summary>
+            Unique identifier of the SDK message filter entity.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.SdkMessageFilterIdUnique">
+            <summary>
+            Unique identifier of the SDK message filter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.SdkMessageId">
+            <summary>
+            Unique identifier of the related SDK message.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.SecondaryObjectTypeCode">
+            <summary>
+            Type of entity with which the SDK message filter is secondarily associated.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.SolutionId">
+            <summary>
+            Unique identifier of the associated solution.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.WorkflowSdkStepEnabled">
+            <summary>
+            Whether or not the SDK message can be called from a workflow.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.sdkmessagefilterid_sdkmessageprocessingstep">
+            <summary>
+            1:N sdkmessagefilterid_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageFilter.sdkmessageid_sdkmessagefilter">
+            <summary>
+            N:1 sdkmessageid_sdkmessagefilter
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.sdkmessageprocessingstep_invocationsource">
+            <summary>
+            Identifies if a plug-in should be executed from a parent pipeline, a child pipeline, or both.
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.sdkmessageprocessingstep_mode">
+            <summary>
+            Run-time mode of execution, for example, synchronous or asynchronous.
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.sdkmessageprocessingstep_stage">
+            <summary>
+            Stage in the execution pipeline that the SDK message processing step is in.
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.sdkmessageprocessingstep_statecode">
+            <summary>
+            Status of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.sdkmessageprocessingstep_statuscode">
+            <summary>
+            Reason for the status of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.sdkmessageprocessingstep_supporteddeployment">
+            <summary>
+            Deployment that the SDK message processing step should be executed on; server, client, or both.
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.SdkMessageProcessingStep">
+            <summary>
+            Stage in the execution pipeline that a plug-in is to execute.
+            </summary>
+        </member>
+        <member name="M:DataverseEntities.SdkMessageProcessingStep.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.AsyncAutoDelete">
+            <summary>
+            Indicates whether the asynchronous system job is automatically deleted on completion.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.CanUseReadOnlyConnection">
+            <summary>
+            Identifies whether a SDK Message Processing Step type will be ReadOnly or Read Write. false - ReadWrite, true - ReadOnly 
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.Category">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.Configuration">
+            <summary>
+            Step-specific configuration for the plug-in type. Passed to the plug-in constructor at run time.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.CreatedBy">
+            <summary>
+            Unique identifier of the user who created the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.CreatedOn">
+            <summary>
+            Date and time when the SDK message processing step was created.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.CreatedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who created the sdkmessageprocessingstep.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.CustomizationLevel">
+            <summary>
+            Customization level of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.Description">
+            <summary>
+            Description of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.EnablePluginProfiler">
+            <summary>
+            EnablePluginProfiler
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.EventExpander">
+            <summary>
+            Configuration for sending pipeline events to the Event Expander service.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.EventHandler">
+            <summary>
+            Unique identifier of the associated event handler.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.FilteringAttributes">
+            <summary>
+            Comma-separated list of attributes. If at least one of these attributes is modified, the plug-in should execute.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.ImpersonatingUserId">
+            <summary>
+            Unique identifier of the user to impersonate context when step is executed.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.IntroducedVersion">
+            <summary>
+            Version in which the form is introduced.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.InvocationSource">
+            <summary>
+            Identifies if a plug-in should be executed from a parent pipeline, a child pipeline, or both.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.IsCustomizable">
+            <summary>
+            Information that specifies whether this component can be customized.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.IsHidden">
+            <summary>
+            Information that specifies whether this component should be hidden.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.IsManaged">
+            <summary>
+            Information that specifies whether this component is managed.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.Mode">
+            <summary>
+            Run-time mode of execution, for example, synchronous or asynchronous.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.ModifiedBy">
+            <summary>
+            Unique identifier of the user who last modified the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.ModifiedOn">
+            <summary>
+            Date and time when the SDK message processing step was last modified.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.ModifiedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who last modified the sdkmessageprocessingstep.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.Name">
+            <summary>
+            Name of SdkMessage processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.OrganizationId">
+            <summary>
+            Unique identifier of the organization with which the SDK message processing step is associated.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.OverwriteTime">
+            <summary>
+            For internal use only.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.PluginTypeId">
+            <summary>
+            Unique identifier of the plug-in type associated with the step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.PowerfxRuleId">
+            <summary>
+            Unique identifier for powerfxrule associated with SdkMessageProcessingStep.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.Rank">
+            <summary>
+            Processing order within the stage.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.RuntimeIntegrationProperties">
+            <summary>
+            For internal use only. Holds miscellaneous properties related to runtime integration.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.SdkMessageFilterId">
+            <summary>
+            Unique identifier of the SDK message filter.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.SdkMessageId">
+            <summary>
+            Unique identifier of the SDK message.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.SdkMessageProcessingStepId">
+            <summary>
+            Unique identifier of the SDK message processing step entity.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.SdkMessageProcessingStepIdUnique">
+            <summary>
+            Unique identifier of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.SdkMessageProcessingStepSecureConfigId">
+            <summary>
+            Unique identifier of the Sdk message processing step secure configuration.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.SolutionId">
+            <summary>
+            Unique identifier of the associated solution.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.Stage">
+            <summary>
+            Stage in the execution pipeline that the SDK message processing step is in.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.StateCode">
+            <summary>
+            Status of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.StatusCode">
+            <summary>
+            Reason for the status of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.SupportedDeployment">
+            <summary>
+            Deployment that the SDK message processing step should be executed on; server, client, or both.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.VersionNumber">
+            <summary>
+            Number that identifies a specific revision of the SDK message processing step. 
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.plugintype_sdkmessageprocessingstep">
+            <summary>
+            N:1 plugintype_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.plugintypeid_sdkmessageprocessingstep">
+            <summary>
+            N:1 plugintypeid_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.sdkmessagefilterid_sdkmessageprocessingstep">
+            <summary>
+            N:1 sdkmessagefilterid_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStep.sdkmessageid_sdkmessageprocessingstep">
+            <summary>
+            N:1 sdkmessageid_sdkmessageprocessingstep
+            </summary>
+        </member>
+        <member name="T:DataverseEntities.SdkMessageProcessingStepSecureConfig">
+            <summary>
+            Non-public custom configuration that is passed to a plug-in's constructor.
+            </summary>
+        </member>
+        <member name="M:DataverseEntities.SdkMessageProcessingStepSecureConfig.#ctor">
+            <summary>
+            Default Constructor.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.CreatedBy">
+            <summary>
+            Unique identifier of the user who created the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.CreatedOn">
+            <summary>
+            Date and time when the SDK message processing step was created.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.CreatedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who created the sdkmessageprocessingstepsecureconfig.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.CustomizationLevel">
+            <summary>
+            Customization level of the SDK message processing step secure configuration.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.ModifiedBy">
+            <summary>
+            Unique identifier of the user who last modified the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.ModifiedOn">
+            <summary>
+            Date and time when the SDK message processing step was last modified.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.ModifiedOnBehalfBy">
+            <summary>
+            Unique identifier of the delegate user who last modified the sdkmessageprocessingstepsecureconfig.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.OrganizationId">
+            <summary>
+            Unique identifier of the organization with which the SDK message processing step is associated.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.SdkMessageProcessingStepSecureConfigId">
+            <summary>
+            Unique identifier of the SDK message processing step secure configuration.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.SdkMessageProcessingStepSecureConfigIdUnique">
+            <summary>
+            Unique identifier of the SDK message processing step.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.SecureConfig">
+            <summary>
+            Secure step-specific configuration for the plug-in type that is passed to the plug-in's constructor at run time.
+            </summary>
+        </member>
+        <member name="P:DataverseEntities.SdkMessageProcessingStepSecureConfig.sdkmessageprocessingstepsecureconfigid_sdkmessageprocessingstep">
+            <summary>
+            1:N sdkmessageprocessingstepsecureconfigid_sdkmessageprocessingstep
+            </summary>
+        </member>
+    </members>
+</doc>
