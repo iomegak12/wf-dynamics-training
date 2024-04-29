@@ -94,7 +94,10 @@
   <ItemGroup>
     <Compile Include="ApplicationRegistrationNumberPlugin.cs" />
     <Compile Include="Configuration.cs" />
+    <Compile Include="EnvironmentValueProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TOEFLScoreModel.cs" />
+    <Compile Include="TOEFLScoreProviderPlugin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
