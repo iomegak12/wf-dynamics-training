@@ -4,6 +4,7 @@ C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Rediv
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Xrm.Sdk.dll
+C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Xrm.Sdk.Workflow.dll
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Newtonsoft.Json.dll
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\System.Buffers.dll
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\System.Memory.dll
@@ -16,6 +17,7 @@ C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Syste
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Crm.Sdk.Proxy.xml
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Xrm.Sdk.xml
+C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Microsoft.Xrm.Sdk.Workflow.xml
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\Newtonsoft.Json.xml
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\System.Buffers.xml
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\bin\Debug\System.Memory.xml
@@ -29,3 +31,4 @@ C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\obj\Debug\Rediv
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\obj\Debug\RedivacPlugins.csproj.CopyComplete
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\obj\Debug\RedivacPlugins.dll
 C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\obj\Debug\RedivacPlugins.pdb
+C:\000 - Dynamics 365\Codes\RedivacCustomizations\RedivacPlugins\obj\Debug\RedivacPlugins.csproj.AssemblyReference.cache

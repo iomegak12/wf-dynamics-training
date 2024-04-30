@@ -110,11 +110,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CreditScoreController.cs" />
     <Compile Include="Controllers\TOEFLScoreController.cs" />
+    <Compile Include="Controllers\TransportDetailController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CreditScoreModel.cs" />
     <Compile Include="Models\TOEFLScoreModel.cs" />
+    <Compile Include="Models\TransportDetailModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
